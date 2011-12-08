@@ -1,14 +1,54 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Store</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "libmin" %>
+  <%= javascript_include_tag "jcarousellite" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+$(document).ready(function(){
+	$('#mediaplayer .images').jCarouselLite({
+    auto: 800,
+    speed: 6000,
+    visible: 2
+});
+});
+</script>
 </head>
 <body>
+<div class="main_all">
+<div class="main">
+<div class="main_inner">
+	<div class="main_content">
+		<div class="header">
+			<div class="logo">
+				<a href="#" title=""><%= image_tag "logo.png" %></a>
+				<h1>Самовыражайся</h1>
+			</div>
+			
+			<div class="menu">
+				<ul>
+					<li><a href="home.html" class="mnu_home active" title="Главная"></a></li>
+					<li><a href="catalog.html" class="mnu_catalog" title="Каталог"></a></li>
+					<li><a href="" class="mnu_contacts" title="Контакты"></a></li>
+				</ul>
+			</div>
+		</div>
+
 
 <%= yield %>
 
+
+<div class="footer">
+			<div>2009 - 2011 (с) ТМ «Ри Мари»</div>
+			<ul>
+				<li><a href="">Главная</a></li>
+				<li><a href="">Каталог</a></li>
+				<li><a href="">Контакты</a></li>
+			</ul>
+		</div>
+	</div>
+</div></div></div>
 </body>
 </html>
