@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207011201) do
+ActiveRecord::Schema.define(:version => 20111213042412) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20111207011201) do
     t.integer  "product_id"
     t.integer  "size_id"
     t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "puffer_users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "roles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

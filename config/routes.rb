@@ -53,7 +53,12 @@ Store::Application.routes.draw do
   resources :products
   resources :categories
   resources :seassons
-  
+
+  namespace :admin do
+    resources :products
+    resources :categories
+    resources :seassons
+  end
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'static_pages#main'
