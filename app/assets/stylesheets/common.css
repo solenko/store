@@ -53,3 +53,8 @@ a {text-decoration:none; color:#ffffff;}
 .catalog_item img {margin-left:11px; margin-top: 6px;}
 .catalog_item p {padding:0px 0 0 0; text-align:center; font-size:14px;}
 .catalog_item h4 {text-align:center; font-size:12px;}
+
+
+/*contacts*/
+.content div.map {float:left; margin-left:30px; margin-top:20px}
+.content div.contacts {float:left; margin-left:30px; margin-top:20px}
