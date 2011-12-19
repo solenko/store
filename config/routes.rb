@@ -58,6 +58,7 @@ Store::Application.routes.draw do
     resources :products
     resources :categories
     resources :seassons
+    resources :sizes
   end
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

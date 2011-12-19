@@ -4,7 +4,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :art
       t.text :description
       t.integer :price
-      t.string :image
+      t.integer :seasson_id
+      t.integer :category_id
 
       t.timestamps
     end
