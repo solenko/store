@@ -1,11 +1,56 @@
-            
-			<div class="sub_content2">
-			    <% @products.each do |prod| %>
-				<div class="catalog_item">
-					<div><%= link_to image_tag("/catalog_image1.jpg", :border=>0), product_path(prod) %></div>
-					<p>#<%= prod.art %>             <%= prod.description %></p>
-					<p>$<%= prod.price %></p>
+<div class="pid">
+				<div class="pid_image">
+					<div class="pid_image_big"><img alt="" src="/pid_image.jpg"></div>
+					<div class="pid_image_small">
+						<ul>
+							<li><a href=""><img alt="" src="/pid_image_small.jpg"></a></li>
+							<li><a href=""><img alt="" src="/pid_image_small.jpg"></a></li>
+							<li><a href=""><img alt="" src="/pid_image_small.jpg"></a></li>
+							<li><a href=""><img alt="" src="/pid_image_small.jpg"></a></li>
+						</ul>
+					</div>
 				</div>
-			  <% end %>
+				<div class="pid_details">
+					<form>
+					<h1>Plate <i>art 20/2 </i></h1>
+					<div class="pid_price">
+						<span>Price:</span> <b>160</b> uah
+					</div>
+					<div class="pid_size">
+						<label for="pid_size_field">Sizes:</label>
+						<select id="pid_size_field" name="">
+							<option>XS (40-42)</option>
+							<option>XS (40-42)</option>
+							<option>XS (40-42)</option>
+							<option>XS (40-42)</option>
+						</select>
+					</div>
+					<div class="pid_color">
+						<label for="pid_color_field">Color:</label>
+						<select id="pid_color_field" name="">
+							<option>0343-566</option>
+							<option>0343-566</option>
+							<option>0343-566</option>
+							<option>0343-566</option>
+						</select>
+					</div>
+					<div class="pid_quan">
+						<label for="pid_color_quan">Color:</label>
+						<input type="text" value="1" id="pid_color_quan" name="">
+						<a href="#">+</a>
+						<a href="#">-</a>
+						<input type="submit" value="Buy!">
+					</div>
+					<div class="pid_description">
+						<h2>Sizes table</h2>
+						<p>Modnoe vyazanoe<br>
+						Sostav tkani: 50% sherst, 50% akril<br>
+						Dlina &ndash; 72 sm.<br>
+						Dlina rukava - 41 sm.
+						</p>
+					</div>
+					</form>
+				</div>
 			</div>
-		
+
+
