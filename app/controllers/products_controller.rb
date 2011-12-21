@@ -7,9 +7,9 @@ def catalog
 end
 
 def index
-  scope = Product.all
-  scope = scope.by_category if @category
-  scope = scope.by_season if @seasson
+  scope = Product.scoped
+  scope = scope.where(:category_id => @category.id) if @category
+  scope = scope.where(:seasson_id => @seasson.id) if @seasson
   @products = scope #.paginate :page => params[:page]
 end
 

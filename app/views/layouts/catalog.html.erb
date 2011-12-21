@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>RiMaRi</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,17 +10,26 @@
 <div class="main_all">
 <div class="main">
 <div class="main_inner">
-	<div class="main_content">
-		<%= render "/header" %>
-        <div class="content">
-             <%= render "/sidemenu" %>
+<div class="main_content">
+<%= render "/header" %>
+
+<div class="content">
+  <div class="sub_content1">
+	<h2>Категории</h2>
+	<ul>
+	<% Category.all.each do |cat| %>
+		<li><%= link_to "#{cat.name}", { :controller => "products", :action => "index", :category_id => cat.id} %></li>
+	<% end %>
+	</ul>
+  </div>
 
 
-            <%= yield %>
-        </div>
+<%= yield %>
+</div>
 
 <%= render "/footer" %>
-	</div>
+</div>
+
 </div></div></div>
 </body>
 </html>
