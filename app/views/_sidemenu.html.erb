@@ -1,0 +1,10 @@
+            <div class="sub_content1">
+				<h2>Каталог</h2>
+				<ul>
+				    <% Category.all.each do |cat| %>
+					<li><%= link_to "#{cat.name}", categories_path(cat.id),  { :controller => "products", :action => "index" } %></li>
+					<% end %>
+				</ul>
+			</div>
+			
+			

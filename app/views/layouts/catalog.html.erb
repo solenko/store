@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RiMaRi</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="main_all">
+<div class="main">
+<div class="main_inner">
+	<div class="main_content">
+		<%= render "/header" %>
+        <div class="content">
+             <%= render "/sidemenu" %>
+
+
+            <%= yield %>
+        </div>
+
+<%= render "/footer" %>
+	</div>
+</div></div></div>
+</body>
+</html>

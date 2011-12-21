@@ -9,7 +9,7 @@ class Admin::ProductsController < Puffer::Base
     field :art
     field :description
     field :price
-    field 'seasson.name', :as => 'seasson'
+    field 'seasson.name'
 #    field :category_id#, :html => Category.find(@record.category_id)
     field 'category.name'
     # field :created_at
@@ -23,7 +23,7 @@ class Admin::ProductsController < Puffer::Base
     field :price
     field :seasson_id, :select => Seasson.all.collect {|s| [ s.name, s.id ] }
     field :category_id, :select => Category.all.collect {|c| [ c.name, c.id ] }
-    field 'size'
+#    field 'size'
 #    field.text_area :text
      
     # field :created_at
