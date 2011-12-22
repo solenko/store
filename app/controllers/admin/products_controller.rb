@@ -10,8 +10,8 @@ class Admin::ProductsController < Puffer::Base
     field :description
     field :price
     field 'seasson.name'
-#    field :category_id#, :html => Category.find(@record.category_id)
     field 'category.name'
+    field :new_product
     # field :created_at
     # field :updated_at
   end
@@ -23,6 +23,7 @@ class Admin::ProductsController < Puffer::Base
     field :price
     field :seasson_id, :select => Seasson.all.collect {|s| [ s.name, s.id ] }
     field :category_id, :select => Category.all.collect {|c| [ c.name, c.id ] }
+    field :new_product
 #    field 'size'
 #    field.text_area :text
      

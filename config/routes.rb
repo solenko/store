@@ -3,6 +3,7 @@ Store::Application.routes.draw do
   
   get "main" => "static_pages#main"
   get "contacts" => "static_pages#contacts"
+  get "new_products" => "products#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

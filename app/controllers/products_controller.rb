@@ -3,7 +3,13 @@ class ProductsController < ApplicationController
   before_filter :find_objects
   attr_reader :category, :seasson
 
-def catalog
+def new
+  @products = Product.where(:new_product => true)
+  render "index"
+end
+
+def show
+  @product = Product.find(params[:id])
 end
 
 def index

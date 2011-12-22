@@ -15,7 +15,8 @@
 
 <div class="content">
   <div class="sub_content1">
-	<h2>Категории</h2>
+    <h2><%= link_to 'Новинки', new_products_path %></h2>
+	<h2>Категории:</h2>
 	<ul>
 	<% Category.all.each do |cat| %>
 		<li><%= link_to "#{cat.name}", { :controller => "products", :action => "index", :category_id => cat.id} %></li>

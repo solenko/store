@@ -43,11 +43,11 @@ a {text-decoration:none; color:#ffffff;}
 
 /*catalog*/
 .catalog .content {padding-top: 59px;}
-.sub_content1 {float:left; width:167px; height:557px; margin-left:10px; margin-top: -20px;}
-.sub_content1 h2 {text-align:center; font-size:15px;}
-.sub_content1 ul {margin-bottom:10px; margin-left:30px;}
+.sub_content1 {float:left; width:167px; height:557px; margin-left:10px; margin-top: 30px;}
+.sub_content1 h2 {text-align:left; margin-left:30px; font-size:15px;}
+.sub_content1 ul {margin-bottom:10px; margin-left:60px;}
 .sub_content1 li a {font-size:14px;}
-.sub_content2 {float:left; width: 676px; padding-left: 10px; margin-top: -30px;}
+.sub_content2 {float:left; width: 676px; padding-left: 10px; margin-top: 20px;}
 .catalog_item {float:left; width:190px; height:277px; margin-top: 10px; margin-right: 35px; background:url(bg_catalog_item.png) 0 0 no-repeat;}
 .catalog_item div {width:190px; height:223px;}
 .catalog_item img {margin-left:11px; margin-top: 6px;}
