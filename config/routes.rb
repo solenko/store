@@ -52,8 +52,6 @@ Store::Application.routes.draw do
   #     resources :products
   #   end
   resources :products
-  resources :categories
-  resources :seassons
 
   namespace :admin do
     resources :products

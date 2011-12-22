@@ -13,10 +13,10 @@ def show
 end
 
 def index
-  scope = Product.scoped
+  scope = Product.order('created_at desc')
   scope = scope.where(:category_id => @category.id) if @category
   scope = scope.where(:seasson_id => @seasson.id) if @seasson
-  @products = scope #.paginate :page => params[:page]
+  @products = scope.page(params[:page]).per(3)
 end
 
 private
