@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
   before_filter :find_objects
   attr_reader :category, :seasson
 
-def new
-  @products = Product.where(:new_product => true)
+def newest
+  @products = Product.where(:new_product => true).page(params[:page]).per(3)
   render "index"
 end
 
