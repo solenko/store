@@ -1,5 +1,13 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
-  hello: "Hello world"
+ru:
+  nested_attributes_many:
+                        form:
+                            add: "Добавить"
+  add: "Добавить"
+  list: "Все"
+  puffer:
+    logout: "Выйти"
+    save: "Сохранить"
+    save_and_exit: "Сохранить и выйти"
