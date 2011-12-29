@@ -12,7 +12,7 @@ class Admin::ProductsController < Puffer::Base
     field 'seasson.name'
     field 'category.name'
     field :new_product
-    field 'productsizes.collect {|a| a.size.code}', :html => { :name => 3 }
+    field 'productsizes.collect {|a| a.size.code}'
     field 'productsizes.collect {|a| a.amount}'
     # field :created_at
     # field :updated_at

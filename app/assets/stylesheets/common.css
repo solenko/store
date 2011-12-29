@@ -58,7 +58,7 @@ a {text-decoration:none; color:#ffffff;}
 .pagination span {display:inline-block; padding:0 3px}
 
 /*PID*/
-.pid {float:left; width:630px; padding:0 0 0 40px}
+.pid {float:left; width:630px; padding:0 0 0 40px; margin-top: 25px;}
 .pid_image {float:left; width:320px}
 .pid_image_big {float:left; width:299px; height:451px; overflow:hidden;}
 .pid_image_small {float:left; padding-top:10px;}
@@ -66,9 +66,8 @@ a {text-decoration:none; color:#ffffff;}
 .pid_details {float:left; width:310px;}
 .pid_details div {padding-bottom:10px;}
 .pid_details h1 {padding-bottom:20px; font-size:24px; line-height:26px;}
-.pid_price span {text-decoration:underline}
 .pid_description {padding-top:20px}
-.pid_description h2 {font-size:20px; line-height:22px; text-decoration:underline}
+.pid_description h2 {font-size:16px; line-height:22px; text-decoration:underline}
 .pid_description p {padding:10px 0 0 0}
 
 /*contacts*/

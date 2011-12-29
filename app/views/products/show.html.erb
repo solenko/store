@@ -11,45 +11,29 @@
 					</div>
 				</div>
 				<div class="pid_details">
-					<form>
-					<h1>Plate <i>art 20/2 </i></h1>
-					<div class="pid_price">
-						<span>Price:</span> <b>160</b> uah
+				
+					<h1>Plate <i>#<%= @product.art %></i></h1>
+					
+					<div class="price">
+						<span>Цена:</span> <b><%= @product.price %></b> грн
 					</div>
-					<div class="pid_size">
-						<label for="pid_size_field">Sizes:</label>
-						<select id="pid_size_field" name="">
-							<option>XS (40-42)</option>
-							<option>XS (40-42)</option>
-							<option>XS (40-42)</option>
-							<option>XS (40-42)</option>
-						</select>
+					
+					<div class="size">
+						<label for="size">Размер:</label>
+						<%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> Таблица
 					</div>
-					<div class="pid_color">
-						<label for="pid_color_field">Color:</label>
-						<select id="pid_color_field" name="">
-							<option>0343-566</option>
-							<option>0343-566</option>
-							<option>0343-566</option>
-							<option>0343-566</option>
-						</select>
+					
+					<div class="quan">
+						<label for="quan">Количество:</label>
+						<input type="text" value="1" id="pid_color_quan" name="" size="2"><br>
+						<input type="submit" align="center" value="Купить">
 					</div>
-					<div class="pid_quan">
-						<label for="pid_color_quan">Color:</label>
-						<input type="text" value="1" id="pid_color_quan" name="">
-						<a href="#">+</a>
-						<a href="#">-</a>
-						<input type="submit" value="Buy!">
-					</div>
+					
 					<div class="pid_description">
-						<h2>Sizes table</h2>
-						<p>Modnoe vyazanoe<br>
-						Sostav tkani: 50% sherst, 50% akril<br>
-						Dlina &ndash; 72 sm.<br>
-						Dlina rukava - 41 sm.
-						</p>
+						<h2>Описание:</h2>
+						<%= simple_format(@product.description) %>
 					</div>
-					</form>
+					
 				</div>
 			</div>
 
