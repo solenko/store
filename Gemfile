@@ -7,7 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 gem 'acts_as_list', '0.1.2'
-gem 'puffer'
+#gem 'puffer'
 gem 'orm_adapter'
 gem 'kaminari'
 

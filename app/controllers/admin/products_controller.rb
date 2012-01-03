@@ -1,39 +1,80 @@
-class Admin::ProductsController < Puffer::Base
+class Admin::ProductsController < Admin::AdminController
+  # GET /admin/products
+  # GET /admin/products.json
+  def index
+    @products = Product.all
 
-  setup do
-    group :products
   end
 
-  index do
-    # field :id
-    field :art
-    field :description
-    field :price
-    field 'seasson.name'
-    field 'category.name'
-    field :new_product
-    field 'productsizes.collect {|a| a.size.code}'
-    field 'productsizes.collect {|a| a.amount}'
-    # field :created_at
-    # field :updated_at
-  end
 
-  form do
-    # field :id
-    field :art
-    field :description
-    field :price
-    field :seasson_id, :select => Seasson.all.collect {|s| [ s.name, s.id ] }
-    field :category_id, :select => Category.all.collect {|c| [ c.name, c.id ] }
-    field :new_product
-    field :productsizes do
-      field :size_id, :select => Size.all.collect {|c| [ c.code, c.id ] };
-      field :amount
+  # GET /admin/products/1
+  # GET /admin/products/1.json
+  def show
+    @product = Product.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @product }
     end
-#    field.text_area :text
-     
-    # field :created_at
-    # field :updated_at
   end
 
+  # GET /admin/products/new
+  # GET /admin/products/new.json
+  def new
+    @product = Product.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @product }
+    end
+  end
+
+  # GET /admin/products/1/edit
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  # POST /admin/products
+  # POST /admin/products.json
+  def create
+    @product = Product.new(params[:admin_product])
+
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.json { render json: @product, status: :created, location: @product }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /admin/products/1
+  # PUT /admin/products/1.json
+  def update
+    @product = Product.find(params[:id])
+
+    respond_to do |format|
+      if @product.update_attributes(params[:admin_product])
+        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /admin/products/1
+  # DELETE /admin/products/1.json
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_products_url }
+      format.json { head :ok }
+    end
+  end
 end
