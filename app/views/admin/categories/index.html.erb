@@ -1,6 +1,9 @@
 <h1>Listing admin_categories</h1>
 <ul>
-<% @categories.each do |category| %>
+<% Category.roots.each do |category| %>
   <li><%= category.name %></li>
+  <% category.children.each do |child| %>
+  <li>-- <%= child.name %> </li>
+  <% end %>
 <% end %>
 </ul>

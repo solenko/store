@@ -10,6 +10,7 @@ class Admin::CategoriesController < Admin::AdminController
 
   def new
     @category = Category.new
+    @category.children.build
   end
 
   def edit
@@ -21,7 +22,7 @@ class Admin::CategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Product was successfully created.' }
+        format.html { redirect_to ([:admin, @category]), notice: 'Product was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -33,7 +34,7 @@ class Admin::CategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to @category, notice: 'Product was successfully updated.' }
+        format.html { redirect_to ([:admin, @category]), notice: 'Product was successfully updated.' }
       else
         format.html { render action: "edit" }
       end

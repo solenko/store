@@ -18,8 +18,11 @@
     <h2><%= link_to 'Новинки', newest_path %></h2>
 	<h2>Категории:</h2>
 	<ul>
-	<% Category.all.each do |cat| %>
-		<li><%= link_to "#{cat.name}", { :controller => "products", :action => "index", :category_id => cat.id} %></li>
+	<% Category.roots.each do |cat| %>
+		<li>- <%= link_to "#{cat.name}", { :controller => "products", :action => "index", :category_id => cat.id} %></li>
+                <% cat.children.each do |child| %>
+                  <li>-- <%= link_to "#{child.name}", { :controller => "products", :action => "index", :category_id => child.id} %></li>
+                <% end %>
 	<% end %>
 	</ul>
   </div>

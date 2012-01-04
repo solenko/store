@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
   has_many :products
-  has_many :seassons
+  acts_as_nested_set
+  accepts_nested_attributes_for :children, :reject_if => lambda { |a| a[:name].blank? }
 end
