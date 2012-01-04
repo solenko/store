@@ -8,7 +8,6 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'acts_as_list', '0.1.2'
 gem 'awesome_nested_set'
-gem 'orm_adapter'
 gem 'kaminari'
 
 # Gems used only for assets and not required
