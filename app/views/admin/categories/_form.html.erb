@@ -19,12 +19,14 @@
   <p> Subcategories
   <% @category.children.each do |sub| %>
     <%= f.fields_for :children, sub do |child| %>
-      <div class="field">
+      <p class="fields">
         <%= child.label :name %>
         <%= child.text_field :name %>
-      </div>
+		<%= link_to_remove_fields "remove", child %>
+      </p>
     <% end %>
   <% end %>
+  </p>
 </div>
 
   <div class="actions">

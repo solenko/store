@@ -1,9 +1,14 @@
-<h1>Listing admin_categories</h1>
+<div align="center">
+<h1>Category list</h1><br /><br />
+
 <ul>
 <% Category.roots.each do |category| %>
-  <li><%= category.name %></li>
+  <li>  <%= category.name %>  <%= link_to 'Edit', edit_admin_category_path(category) %>  <%= link_to 'Destroy', ([:admin, category]), confirm: 'Are you sure?', method: :delete %></li>
   <% category.children.each do |child| %>
-  <li>-- <%= child.name %> </li>
+  <li>  -- <%= child.name %>  <%= link_to 'Edit', edit_admin_category_path(child) %>  <%= link_to 'Destroy', ([:admin, child]), confirm: 'Are you sure?', method: :delete %></li>
   <% end %>
 <% end %>
 </ul>
+<br /><br /><br />
+<%= link_to 'New', new_admin_category_path %>
+</div>
