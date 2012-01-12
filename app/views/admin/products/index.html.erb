@@ -1,0 +1,36 @@
+<div align="center">
+<h1>Список товаров</h1><br /><br />
+
+<table cellspacing="3" cellpadding="3" border="1" >
+   <tr>
+    <th>#</th>
+	<th>Артикул</th>
+	<th>Наименование</th>
+	<th>Цена</th>
+	<th>Размер/Кол-во</th>
+	<th colspan=2>Редактирование</th>
+  </tr>
+  
+  <% @products.each do |product| %>
+  
+	<tr>
+	  <td> <%= product.id %> </td>
+	  <td> <%= product.art %> </td>
+	  <td> </td>
+	  <td> <%= product.price %> </td>
+	  <td> <% product.productsizes.each do |ps| %>
+           <%= "#{ps.size.code} - #{ps.amount}," %>
+           <% end %></td>
+	  <td> <%= link_to 'Редактировать', edit_admin_product_path(product) %> </td>
+	  <td> <%= link_to 'Удалить', ([:admin, product]), confirm: 'Вы уверены?', method: :delete %> </td>
+    </tr>
+
+  <% end %>
+  
+</table>
+
+<br /><br /><br />
+
+<%= link_to 'Создать товар', new_admin_product_path %>
+
+</div>
