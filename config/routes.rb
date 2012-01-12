@@ -56,7 +56,6 @@ Store::Application.routes.draw do
   namespace :admin do
     resources :products
     resources :categories
-    resources :seassons
     resources :sizes
   end
   # You can have the root of your site routed with "root"

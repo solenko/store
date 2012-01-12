@@ -12,26 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%=  f.label :name %><br />
+    <%=  f.label :Категория %><br />
     <%= f.text_field :name %>
   </div>
 <div>
-  <p> Subcategories
+  <p> Подкатегории: </p>
   <% @category.children.each do |sub| %>
     <%= f.fields_for :children, sub do |child| %>
-      <div class="fields">
-        <%= child.label :name %>
-        <%= child.text_field :name %>
-        <%= link_to_remove_fields "remove", child %>
-      </div>
-     <% end %>
-  <p><%= link_to_add_fields "Add Subcategory", sub, :children %></p>
+      <%= render "child_fields", :f => child %>
+	<% end %>
   <% end %>
-  </p>
+  <p><%= link_to_add_fields "Добавить подкатегорию", f, :children %></p>
 </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить" %>
   </div>
 
 <% end %>

@@ -1,14 +1,43 @@
 <div align="center">
-<h1>Category list</h1><br /><br />
+<h1>Список категорий</h1><br /><br />
 
-<ul>
-<% Category.roots.each do |category| %>
-  <li>  <%= category.name %>  <%= link_to 'Edit', edit_admin_category_path(category) %>  <%= link_to 'Destroy', ([:admin, category]), confirm: 'Are you sure?', method: :delete %></li>
-  <% category.children.each do |child| %>
-  <li>  -- <%= child.name %>  <%= link_to 'Edit', edit_admin_category_path(child) %>  <%= link_to 'Destroy', ([:admin, child]), confirm: 'Are you sure?', method: :delete %></li>
+<table cellspacing="3" cellpadding="3" border="1" >
+  <tr>
+    <th>#</th>
+	<th># parent</th>
+	<th>Название</th>
+	<th colspan=2>Редактирование</th>
+	
+  </tr>
+  
+  <% Category.roots.each do |category| %>
+  
+    <tr>
+	  <td> <%= category.id %> </td>
+	  <td></td>
+	  <td> <%= category.name %> </td>
+	  <td> <%= link_to 'Редактировать', edit_admin_category_path(category) %> </td>
+	  <td> <%= link_to 'Удалить', ([:admin, category]), confirm: 'Вы уверены?', method: :delete %> </td>
+    </tr>
+	
+    <% category.children.each do |child| %>
+	
+      <tr>
+        <td> <%= child.id %> </td>
+		<td> <%= child.parent_id %> </td>
+		<td> -- <%= child.name %> </td>
+		<td></td>
+		<td></td>
+	  </tr>
+	  
+    <% end %>
+	
   <% end %>
-<% end %>
-</ul>
+  
+</table>
+
 <br /><br /><br />
-<%= link_to 'New', new_admin_category_path %>
+
+<%= link_to 'Создать категорию', new_admin_category_path %>
+
 </div>
