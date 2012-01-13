@@ -2,7 +2,8 @@ class Admin::ProductsController < Admin::AdminController
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @products = Product.all
+    scope = Product.order('id')
+    @products = scope.page(params[:page]).per(25)
 
   end
 

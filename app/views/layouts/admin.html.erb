@@ -2,13 +2,40 @@
 <html>
 <head>
   <title>AdminPanel for RiMaRi</title>
-  
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= javascript_include_tag "application", :cache => true %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+  <% if notice %>
+    <div class="alert-message info"><%= notice %></div>
+  <% end %>
+
+  <% if alert %>
+    <div class="alert-message error"><%= alert %></div>
+  <% end %>
+
+     <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Rimari Admin</a>
+
+          <ul class="nav">
+            <li><%= link_to 'Products', admin_products_path %></li>
+            <li><%= link_to 'Categories', admin_categories_path %></li>
+            <li><%= link_to 'Sizes', admin_sizes_path %></li>
+          </ul>
+          <p class="pull-right">Logged in as <a href="#">username</a></p>
+
+        </div>
+      </div>
+    </div>
+
   <%= yield %>
 </body>
 </html>

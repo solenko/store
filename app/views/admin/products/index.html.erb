@@ -8,7 +8,7 @@
 	<th>Наименование</th>
 	<th>Цена</th>
 	<th>Размер/Кол-во</th>
-	<th colspan=2>Редактирование</th>
+	<th colspan=2></th>
   </tr>
   
   <% @products.each do |product| %>
@@ -31,6 +31,7 @@
 
 <br /><br /><br />
 
-<%= link_to 'Создать товар', new_admin_product_path %>
+<%= link_to 'Создать товар', new_admin_product_path, :class => 'btn primary large' %>
 
 </div>
+<div class="pagination"><%= paginate @products %></div>
