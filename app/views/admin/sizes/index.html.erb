@@ -1,0 +1,29 @@
+<div align="center">
+<h1>Список размеров</h1>
+<div class="span12">
+<table class="bordered-table zebra-striped">
+<thead>
+  <tr>
+    <th>#</th>
+	<th>Наименование</th>
+	<th colspan=2></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @sizes.each do |size| %>
+  
+    <tr>
+	  <td> <%= size.id %> </td>
+	  <td> <%= size.code %> </td>
+	  <td> <%= link_to 'Редактировать', edit_admin_size_path(size), :class => 'btn info' %> </td>
+	  <td> <%= link_to 'Удалить', ([:admin, size]), confirm: 'Вы уверены?', method: :delete, :class => 'btn danger' %> </td>
+    </tr>
+  	
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Создать размер', new_admin_size_path, :class => 'btn primary large' %>
+</div>
+</div>

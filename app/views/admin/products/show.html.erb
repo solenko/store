@@ -1,0 +1,60 @@
+
+<div class="page-header">
+  <h3 align="center">Просмотр товара <%= @product.name %></h3>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <div> <img alt="" src="/pid_image.jpg"> </div>
+	<div>
+      <img alt="" src="/pid_image_small.jpg">
+	  <img alt="" src="/pid_image_small.jpg">
+	  <img alt="" src="/pid_image_small.jpg">
+	  <img alt="" src="/pid_image_small.jpg">
+	</div>
+  </div>
+  
+  <div class="span10">
+    <table class="bordered-table zebra-striped">
+	  <tbody>
+	    <tr>
+		  <td> Артикул </td>
+		  <td> <%= @product.art %> </td>
+	    </tr>
+	
+   	    <tr>
+	      <td> Название </td>
+	      <td> <%= @product.name %> </td>
+        </tr>
+	
+	    <tr>
+          <td> Цена </td>
+	      <td> <%= @product.price %> грн </td>
+	    </tr>
+
+	    <tr>
+          <td> Размеры/Кол-во: </td>
+          <td> <% @product.productsizes.each do |ps| %><%= " #{ps.size.code} - #{ps.amount}," %><% end %> </td>
+	    </tr>
+	  
+	    <tr>
+          <td> Категории: </td>
+          <td> <% if @product.category.present? %> <%= @product.category.name  %> <% end %></td>
+	    </tr>
+
+	    <tr>
+          <td> Описание </td>
+          <td> <%= simple_format(@product.description) %> </td>
+        </tr>
+	
+      </tbody>
+    </table>
+  </div>
+
+  <div align="center">
+    <%= link_to 'Back', admin_products_path, :class => 'btn' %>
+    <%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn info' %></td>
+    <%= link_to 'Destroy', ([:admin, @product]), confirm: 'Are you sure?', method: :delete, :class => 'btn danger' %></td>
+  </div>
+
+</div>

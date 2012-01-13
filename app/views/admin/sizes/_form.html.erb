@@ -1,0 +1,23 @@
+<%= form_for([:admin, @size]) do |f| %>
+  <% if @size.errors.any? %>
+    <div id="error_explanation" class="alert-message error">
+	  <h2>Ошибка:</h2>
+      <ul>
+	  
+      <% @size.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Сохранить", :class => 'btn success' %>
+	<%= link_to 'Назад', admin_sizes_path, :class => 'btn' %>
+  </div>
+
+<% end %>
