@@ -41,8 +41,6 @@
     end
   end
 
-  # DELETE /admin/products/1
-  # DELETE /admin/products/1.json
   def destroy
     @category = Category.find(params[:id])
     @category.destroy

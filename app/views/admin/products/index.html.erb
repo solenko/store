@@ -1,37 +1,45 @@
 <div align="center">
-<h1>Список товаров</h1><br /><br />
-
-<table cellspacing="3" cellpadding="3" border="1" >
-   <tr>
-    <th>#</th>
-	<th>Артикул</th>
-	<th>Наименование</th>
-	<th>Цена</th>
-	<th>Размер/Кол-во</th>
-	<th colspan=2></th>
-  </tr>
+<h1>Список товаров</h1>
+<div class="span18">
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+	  <th>Артикул</th>
+	  <th>Наименование</th>
+	  <th>Цена</th>
+	  <th>Размер/Кол-во</th>
+	  <th colspan=3></th>
+    </tr>
+  </thead>
   
+  <tbody>
   <% @products.each do |product| %>
   
 	<tr>
 	  <td> <%= product.id %> </td>
 	  <td> <%= product.art %> </td>
-	  <td> </td>
+	  <td> <%= product.name %></td>
 	  <td> <%= product.price %> </td>
-	  <td> <% product.productsizes.each do |ps| %>
-           <%= "#{ps.size.code} - #{ps.amount}," %>
-           <% end %></td>
-	  <td> <%= link_to 'Редактировать', edit_admin_product_path(product) %> </td>
-	  <td> <%= link_to 'Удалить', ([:admin, product]), confirm: 'Вы уверены?', method: :delete %> </td>
+	  <td> <% product.productsizes.each do |ps| %><%= " #{ps.size.code} - #{ps.amount}," %><% end %></td>
+	  <td> <%= link_to 'Посмотреть', admin_product_path(product), :class => 'btn success' %> </td>
+	  <td> <%= link_to 'Редактировать', edit_admin_product_path(product), :class => 'btn info' %> </td>
+	  <td> <%= link_to 'Удалить', ([:admin, product]), confirm: 'Вы уверены?', method: :delete, :class => 'btn danger' %> </td>
     </tr>
 
   <% end %>
-  
+  </tbody>
 </table>
 
-<br /><br /><br />
 
 <%= link_to 'Создать товар', new_admin_product_path, :class => 'btn primary large' %>
 
 </div>
-<div class="pagination"><%= paginate @products %></div>
+
+
+
+  <div class="pagination" style="align:center">
+    <%= paginate @products %>
+  </div>
+  
+</div>

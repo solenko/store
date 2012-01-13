@@ -1,23 +1,26 @@
 <div align="center">
-<h1>Список категорий</h1><br /><br />
-
-<table cellspacing="3" cellpadding="3" border="1" >
+<h1>Список категорий</h1>
+<div class="span12">
+<table class="bordered-table zebra-striped">
+  <thead>
   <tr>
     <th>#</th>
 	<th># parent</th>
 	<th>Название</th>
-	<th colspan=2>Редактирование</th>
+	<th colspan=2></th>
 	
   </tr>
+  </thead>
   
+  <tbody>
   <% Category.roots.each do |category| %>
-  
+    
     <tr>
 	  <td> <%= category.id %> </td>
 	  <td></td>
 	  <td> <%= category.name %> </td>
-	  <td> <%= link_to 'Редактировать', edit_admin_category_path(category) %> </td>
-	  <td> <%= link_to 'Удалить', ([:admin, category]), confirm: 'Вы уверены?', method: :delete %> </td>
+	  <td> <%= link_to 'Редактировать', edit_admin_category_path(category), :class => 'btn info' %> </td>
+	  <td> <%= link_to 'Удалить', ([:admin, category]), confirm: 'Вы уверены?', method: :delete, :class => 'btn danger' %> </td>
     </tr>
 	
     <% category.children.each do |child| %>
@@ -33,11 +36,10 @@
     <% end %>
 	
   <% end %>
-  
+  </tbody>
 </table>
 
-<br /><br /><br />
 
 <%= link_to 'Создать категорию', new_admin_category_path, :class => 'btn primary large' %>
-
+</div>
 </div>
