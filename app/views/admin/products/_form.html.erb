@@ -31,14 +31,14 @@
 		<tr>
 		  <td rowspan="5"> Размеры: </td>
 		  <td>
-		  <% @product.productsizes.each do |ps| %>
-		    <tr colspan="2">
-
-		      <td><%= ps.size.code %></td>
-              <td><%= ps.amount %></td>
-	
-			</tr>
-          <% end %> 
+		  <%= f.fields_for :productsizes, @product.productsizes do |ps| %>
+		    <tr colspan="3">
+              <td> <%= ps.hidden_field :size_id %> </td>
+		      <td> <%= ps.object.size.code %> </td>
+			  <td> <%= ps.text_field :amount %></td>
+            </tr>
+          <% end %>
+	  
 			  
 		  </td>
 		</tr>

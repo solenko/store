@@ -29,6 +29,9 @@ class Admin::ProductsController < Admin::AdminController
       if @product.save
         format.html { redirect_to (admin_products_url), notice: 'Product was successfully created.' }
       else
+#        Size.all.each do |size|
+#          @product.productsizes.build( :size_id => size.id )
+#       end
         format.html { render action: "new" }
       end
     end
