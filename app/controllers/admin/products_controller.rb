@@ -20,6 +20,10 @@ class Admin::ProductsController < Admin::AdminController
 
   def edit
     @product = Product.find(params[:id])
+
+    Size.all.each do |size|
+      @product.productsizes.build( :size_id => size.id ) unless @product.productsizes.collect { |a| a.size_id }.include? size.id
+    end
   end
 
   def create
@@ -27,11 +31,8 @@ class Admin::ProductsController < Admin::AdminController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to (admin_products_url), notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully created.' }
       else
-#        Size.all.each do |size|
-#          @product.productsizes.build( :size_id => size.id )
-#       end
         format.html { render action: "new" }
       end
     end
@@ -42,7 +43,7 @@ class Admin::ProductsController < Admin::AdminController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to (admin_products_url), notice: 'Product was successfully updated.' }
+        format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully updated.' }
       else
         format.html { render action: "edit" }
       end
