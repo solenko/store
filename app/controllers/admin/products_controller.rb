@@ -13,7 +13,7 @@ class Admin::ProductsController < Admin::AdminController
     @product = Product.new
 
     Size.all.each do |size|
-      @product.productsizes.build( :size_id => size.id )
+      @product.productsizes.build( :size_id => size.id, :amount => 0 )
     end
     
   end
@@ -22,7 +22,7 @@ class Admin::ProductsController < Admin::AdminController
     @product = Product.find(params[:id])
 
     Size.all.each do |size|
-      @product.productsizes.build( :size_id => size.id ) unless @product.productsizes.collect { |a| a.size_id }.include? size.id
+      @product.productsizes.build( :size_id => size.id, :amount => 0 ) unless @product.productsizes.collect { |a| a.size_id }.include? size.id
     end
   end
 
