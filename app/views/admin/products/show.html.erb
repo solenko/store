@@ -37,10 +37,7 @@
           <td> <% @product.productsizes.each do |ps| %><%= " #{ps.size.code} - #{ps.amount}," %><% end %> </td>
 	    </tr>
 	  
-	    <tr>
-          <td> Категории: </td>
-          <td> <% if @product.category.present? %> <%= @product.category.name  %> <% end %></td>
-	    </tr>
+
 
 	    <tr>
           <td> Описание </td>

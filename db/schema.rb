@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103201723) do
+ActiveRecord::Schema.define(:version => 20120119144321) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,11 +23,18 @@ ActiveRecord::Schema.define(:version => 20120103201723) do
     t.integer  "rgt"
   end
 
+  create_table "productcategories", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
+    t.string   "name"
     t.string   "art"
     t.text     "description"
     t.integer  "price"
-    t.integer  "seasson_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,21 +45,6 @@ ActiveRecord::Schema.define(:version => 20120103201723) do
     t.integer  "product_id"
     t.integer  "size_id"
     t.integer  "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "puffer_users", :primary_key => "_id", :force => true do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "roles"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "seassons", :force => true do |t|
-    t.string   "name"
-    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

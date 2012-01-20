@@ -1,9 +1,12 @@
 class Product < ActiveRecord::Base
-  belongs_to :category
-  has_many :productsizes, :dependent => :destroy, :autosave => true
+#  has_many :categories, :through => :productcategories
+#  has_many :productcategories, :dependent => :destroy
+
+  has_many :productsizes, :dependent => :destroy
   has_many :sizes, :through => :productsizes
+  
   accepts_nested_attributes_for :productsizes, :allow_destroy => true
-#  accepts_nested_attributes_for :sizes
+#  accepts_nested_attributes_for :productcategories, :allow_destroy => true
 
   validates :art, :presence => true, :uniqueness => true
   validates :name, :presence => true, :uniqueness => true
@@ -16,16 +19,16 @@ class Product < ActiveRecord::Base
   private
     def mark_sizes_for_removal
       if valid?
+
         productsizes.each do |ps|
 #          if ps.amount == 0 || ps.amount.blank?
           puts ps.inspect
           puts "blank? = #{ps.amount.blank?}"
           puts "amount == 0 -> #{ps.amount == 0}"
-          ps.mark_for_destruction if ps.amount == 0
-          ps.mark_for_destruction if ps.amount.blank?
+          ps.mark_for_destruction if ps.amount.to_i < 1 || ps.amount.blank?
           puts "marked_for_destruction? = #{ps.marked_for_destruction?}"
         end
-#        end
+
       end
     end
 

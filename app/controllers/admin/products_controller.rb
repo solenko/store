@@ -27,7 +27,16 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def create
+
+#    params["product"]["productsizes_attributes"].delete_if {|k,v|
+#       v["amount"].blank? || v["amount"].to_i < 1
+#      }
+
+#    sizes_params = params[:product].delete(:productsizes_attributes)
     @product = Product.new(params[:product])
+    
+#    @product.update_attributes(:productsizes_attributes => sizes_params )
+#    @product.update_attributes(params[:product][:productsizes]) if @product.save #hack
 
     respond_to do |format|
       if @product.save
