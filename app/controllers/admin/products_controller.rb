@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::AdminController
 
   def index
     scope = Product.order('id')
-    @products = scope.page(params[:page]).per(5)
+    @products = scope.page(params[:page]).per(20)
   end
 
   def show
@@ -29,15 +29,20 @@ class Admin::ProductsController < Admin::AdminController
       if @product.save
         format.html { redirect_to (admin_products_url), notice: 'Product was successfully created.' }
       else
-#        Size.all.each do |size|
-#          @product.productsizes.build( :size_id => size.id )
-#       end
         format.html { render action: "new" }
       end
     end
   end
 
   def update
+    del = {"_destroy"=>"1"}
+
+    params[:product][:productsizes_attributes].each_value { |value|
+      value.merge!(del) if value["amount"].to_i < 1 || value["amount"].blank?
+    }
+
+    puts params[:product].inspect
+    
     @product = Product.find(params[:id])
 
     respond_to do |format|
