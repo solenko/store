@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+  <div class="row">
+  <div class="span6">
+    <div> <img alt="" src="/pid_image.jpg"> </div>
+	<div>
+      <img alt="" src="/pid_image_small.jpg">
+	  <img alt="" src="/pid_image_small.jpg">
+	  <img alt="" src="/pid_image_small.jpg">
+	  <img alt="" src="/pid_image_small.jpg">
+	</div>
+  </div>
+  
+  <div class="span10">
   <table class="bordered-table zebra-striped">
 	  <tbody>
 	    <tr>
@@ -31,7 +43,7 @@
 		<tr>
 		  <td rowspan="5"> Размеры: </td>
 		  <td>
-		  <%= f.fields_for :productsizes, @product.productsizes do |ps| %>
+		  <%= f.fields_for :productsizes, @product.productsizes.sort_by{|a| a.size_id} do |ps| %>
 		    <tr colspan="3">
               <td> <%= ps.hidden_field :size_id %> </td>
 		      <td> <%= ps.object.size.code %> </td>
@@ -47,6 +59,13 @@
           <td> Описание </td>
           <td> <%= f.text_area :description, :class => 'span14' %> </td>
         </tr>
+		
+        <tr>
+          <td> Новинка? </td>
+          <td> <%= f.check_box :new_product %> </td>
+        </tr>
+		
+		
 	
       </tbody>
     </table>
@@ -59,3 +78,4 @@
   </div>
 
 <% end %>
+ </div>
