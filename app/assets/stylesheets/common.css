@@ -46,13 +46,14 @@ a {text-decoration:none; color:#ffffff;}
 .catalog .content {padding-top: 59px;}
 .sub_content1 {float:left; width:167px; height:557px; margin-left:10px; margin-top: 25px;}
 .sub_content1 h2 {text-align:left; margin-left:30px; font-size:15px;}
-.sub_content1 ul {margin-bottom:10px; margin-left:45px;}
+.sub_content1 ul {margin-bottom:10px; margin-left:25px;}
 .sub_content1 li a {font-size:14px;}
 .sub_content2 {float:left; width: 676px; padding-left: 10px; margin-top: 15px;}
 .catalog_item {float:left; width:190px; height:277px; margin-top: 10px; margin-right: 35px; background:url(bg_catalog_item.png) 0 0 no-repeat;}
 .catalog_item div {width:190px; height:223px;}
 .catalog_item img {margin-left:11px; margin-top: 6px;}
-.catalog_item p {padding:0px 0 0 0; text-align:center; font-size:14px;}
+.catalog_item p {padding:0px 0 0 0; text-align:center; font-size:14px; margin-left:-30px;}
+.catalog_item p.size {padding:0px 0 0 0;text-align:right;margin-right:20px;}
 .catalog_item h4 {text-align:center; font-size:12px;}
 /*.pagination{height:36px;margin:18px 0;}*/
 .pagination {float: left; padding: 30px 0 0 233px; width: 676px;}
@@ -83,5 +84,6 @@ a {text-decoration:none; color:#ffffff;}
 .pid_description p {padding:10px 0 0 0}
 
 /*contacts*/
-.content div.map {float:left; margin-left:30px; margin-top:20px}
-.content div.contacts {float:left; margin-left:30px; margin-top:20px}
+.contacts {margin:20px auto 0;width: 500px;text-align:center}
+.contacts h4 {padding:0px 0 0 0; text-align:center; font-size:16px;line-height:22px; font-weight: bold}
+.contacts div.map {float:left; margin-left:-30px; margin-top:20px; margin-bottom:20px}

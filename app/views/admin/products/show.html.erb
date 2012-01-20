@@ -39,7 +39,7 @@
 	  
 	    <tr>
 		  <td> Категории: </td>
-		  <td> <% @product.productcategories.each do |pc| %><%= " #{pc.category.name} " %><% end %></td>
+		  <td> <% @product.productcategories.each do |pc| %><p> <% if pc.category.root? %> <%= " #{pc.category.name} " %> <% else %> <%= " #{pc.category.root.name} - #{pc.category.name} " %> <% end %> </p><% end %></td>
 		</tr>
 
 

@@ -9,6 +9,8 @@
 	  <th>Наименование</th>
 	  <th>Цена</th>
 	  <th>Размер/Кол-во</th>
+	  <th>Новинка</th>
+	  <th>Категории</th>
 	  <th colspan=3></th>
     </tr>
   </thead>
@@ -22,6 +24,8 @@
 	  <td> <%= product.name %></td>
 	  <td> <%= product.price %> </td>
 	  <td> <% product.productsizes.each do |ps| %><%= " #{ps.size.code} - #{ps.amount}," %><% end %></td>
+	  <td> <% if product.new_product? %> &#8730; <% end %></td>
+	  <td> <% product.productcategories.each do |pc| %><p> <% if pc.category.root? %> <%= " #{pc.category.name} " %> <% else %> <%= " #{pc.category.root.name} - #{pc.category.name} " %> <% end %> </p><% end %> </td>
 	  <td> <%= link_to 'Посмотреть', admin_product_path(product), :class => 'btn success' %> </td>
 	  <td> <%= link_to 'Редактировать', edit_admin_product_path(product), :class => 'btn info' %> </td>
 	  <td> <%= link_to 'Удалить', ([:admin, product]), confirm: 'Вы уверены?', method: :delete, :class => 'btn danger' %> </td>

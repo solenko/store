@@ -3,8 +3,8 @@
 			    <% @products.each do |prod| %>
 				<div class="catalog_item">
 					<div><%= link_to image_tag("/catalog_image1.jpg", :border=>0), product_path(prod) %></div>
-					<p>#<%= prod.art %>             <%= prod.name %></p>
-					<p>$<%= prod.price %></p>
+					<p><%= prod.name %></p>
+					<p class="size"><%= prod.price %> грн</p>
 				</div>
 			  <% end %>
 			</div>
