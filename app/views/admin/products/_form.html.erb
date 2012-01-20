@@ -58,9 +58,15 @@
 		<tr>
 		  <td> Категории: </td>
 		  <td>
-		  <%= f.fields_for :productcategories, @product.productcategories do |pc| %>
-            <%= pc.select :category_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" }, {}, { :multiple => true, :size => 30} %>
+		  <div align="center">
+		  <% @product.productcategories.each do |pc| %>
+		    <%= f.fields_for :productcategories, pc do |child| %>
+              <%= render "productcategory_fields", :f => child %>
+	        <% end %>
 		  <% end %>
+		  <br/>
+          <%= link_to_add_fields "Добавить категорию", f, :productcategories %>
+		  </div>
 		  </td>
 		</tr>
 		

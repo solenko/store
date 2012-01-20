@@ -1,4 +1,4 @@
-class Admin::CategoriesController < Admin::AdminController
+﻿class Admin::CategoriesController < Admin::AdminController
 
   def index
     @categories = Category.all
@@ -22,7 +22,7 @@ class Admin::CategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to (admin_categories_url), notice: "Категори�? #{@category.name} у�?пешно �?оздана" }
+        format.html { redirect_to (admin_categories_url), notice: "Категория #{@category.name} успешно создана" }
       else
         format.html { render action: "new" }
       end
@@ -34,7 +34,7 @@ class Admin::CategoriesController < Admin::AdminController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to (admin_categories_url), notice: "Категори�? #{@category.name} у�?пешно обновлена" }
+        format.html { redirect_to (admin_categories_url), notice: "Категория #{@category.name} успешно обновлена" }
       else
         format.html { render action: "edit" }
       end
@@ -46,7 +46,7 @@ class Admin::CategoriesController < Admin::AdminController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to (admin_categories_url), notice: "Категори�? #{@category.name} удалена" }
+      format.html { redirect_to (admin_categories_url), notice: "Категория #{@category.name} удалена" }
      end
   end
 end
