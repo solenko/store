@@ -41,17 +41,24 @@
 	    </tr>
         
 		<tr>
-		  <td rowspan="5"> Размеры: </td>
+		  <td> Размеры: </td>
 		  <td>
-		  <%= f.fields_for :productsizes, @product.productsizes.sort_by{|a| a.size_id} do |ps| %>
-		    <tr colspan="3">
-              <td> <%= ps.hidden_field :size_id %> </td>
-		      <td> <%= ps.object.size.code %> </td>
-			  <td> <%= ps.text_field :amount %></td>
-            </tr>
-          <% end %>
-	  
-			  
+		    <table>
+		      <%= f.fields_for :productsizes, @product.productsizes.sort_by{|a| a.size_id} do |ps| %>
+		        <tr>
+                  <%= ps.hidden_field :size_id %>
+		          <td> <%= ps.object.size.code %> </td>
+			      <td> <%= ps.text_field :amount %></td>
+               </tr>
+              <% end %>
+		    </table>
+	      </td>
+		</tr>
+		
+		<tr>
+		  <td> Категории: </td>
+		  <td>
+             <%= f.select :category_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" }%>
 		  </td>
 		</tr>
 		

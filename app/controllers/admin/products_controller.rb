@@ -15,7 +15,9 @@ class Admin::ProductsController < Admin::AdminController
     Size.all.each do |size|
       @product.productsizes.build( :size_id => size.id, :amount => 0 )
     end
-    
+
+    @product.productcategories.build
+
   end
 
   def edit
@@ -27,16 +29,7 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def create
-
-#    params["product"]["productsizes_attributes"].delete_if {|k,v|
-#       v["amount"].blank? || v["amount"].to_i < 1
-#      }
-
-#    sizes_params = params[:product].delete(:productsizes_attributes)
     @product = Product.new(params[:product])
-    
-#    @product.update_attributes(:productsizes_attributes => sizes_params )
-#    @product.update_attributes(params[:product][:productsizes]) if @product.save #hack
 
     respond_to do |format|
       if @product.save
@@ -48,16 +41,16 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   def update
-    del = {"_destroy"=>"1"}
-
-    params[:product][:productsizes_attributes].each_value { |value|
-      value.merge!(del) if value["amount"].to_i < 1 || value["amount"].blank?
-    }
-
-    puts params[:product].inspect
-    
     @product = Product.find(params[:id])
 
+    if @product.valid?
+      del = {"_destroy"=>"1"}
+
+      params[:product][:productsizes_attributes].each_value { |value|
+        value.merge!(del) if value["amount"].to_i < 1 || value["amount"].blank?
+      }
+    end
+   
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to admin_product_path(@product), notice: 'Product was successfully updated.' }

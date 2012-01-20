@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20120119144321) do
     t.string   "art"
     t.text     "description"
     t.integer  "price"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "new_product"
