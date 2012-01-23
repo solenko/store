@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'acts_as_list', '0.1.2'
 gem 'awesome_nested_set'
 gem 'kaminari'
+gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
