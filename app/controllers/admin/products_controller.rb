@@ -17,6 +17,7 @@ class Admin::ProductsController < Admin::AdminController
     end
 
     @product.productcategories.build
+    @product.productimages.build
 
   end
 
@@ -33,7 +34,7 @@ class Admin::ProductsController < Admin::AdminController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} был успешно создан" }
+        format.html { redirect_to admin_product_path(@product), notice: "Product #{@product.name} was successfully created" }
       else
         format.html { render action: "new" }
       end
@@ -53,7 +54,7 @@ class Admin::ProductsController < Admin::AdminController
    
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} был успешно изменен" }
+        format.html { redirect_to admin_product_path(@product), notice: "Product #{@product.name} was successfully changed" }
       else
         format.html { render action: "edit" }
       end
@@ -65,7 +66,7 @@ class Admin::ProductsController < Admin::AdminController
     @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to (admin_products_url), notice: "Товар #{@product.name} был успешно удален" }
+      format.html { redirect_to (admin_products_url), notice: "Product #{@product.name} was deleted" }
     end
   end
 end

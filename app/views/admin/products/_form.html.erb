@@ -78,9 +78,21 @@
           <td> Новинка? </td>
           <td> <%= f.check_box :new_product %> </td>
         </tr>
-		
-		
-	
+        
+        <tr>
+          <td> Картинки: </td>
+          <td>
+          <div align="center">
+          <% @product.productimages.each do |pi| %>
+            <%= f.fields_for :productimages, pi do |child| %>
+              <%= render "productimage_fields", :f => child %>
+            <% end %>
+          <% end %>
+          <%= link_to_add_fields "Добавить изображение", f, :productimages %>
+          </div>
+          </td>
+        </tr>
+
       </tbody>
     </table>
 
