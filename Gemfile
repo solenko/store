@@ -10,6 +10,7 @@ gem 'acts_as_list', '0.1.2'
 gem 'awesome_nested_set'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Gems used only for assets and not required
 # in production environments by default.

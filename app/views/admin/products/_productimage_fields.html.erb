@@ -1,5 +1,11 @@
 <div class="fields" align="center">
-        <%= f.file_field :image %><br>
-        <%= link_to_remove_fields "удалить", f %>
+  <% if !f.object.new_record? %>
+    <%= image_tag f.object.image_url(:thumb).to_s %>
+    <%= link_to_remove_fields "удалить", f %>
+  <% else %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+    <%= link_to_remove_fields "удалить", f %>
+  <% end %>
 <br/>
 </div>

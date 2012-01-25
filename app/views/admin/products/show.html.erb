@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="span6">
-    <div> <%= image_tag @product.productimages.first.image_url.to_s %> </div>
+    <div><% if @product.productimages.present? %> <%= image_tag @product.productimages.first.image_url.to_s %> <% end %> </div>
 	<div>
       <img alt="" src="/pid_image_small.jpg">
 	  <img alt="" src="/pid_image_small.jpg">
