@@ -48,14 +48,14 @@
 		<tr>
 		  <td> Категории: </td>
 		  <td>
-		  <div align="center">
+		  <div>
 		  <% @product.productcategories.each do |pc| %>
 		    <%= f.fields_for :productcategories, pc do |child| %>
               <%= render "productcategory_fields", :f => child %>
 	        <% end %>
 		  <% end %>
-		  <%= link_to_add_fields "Добавить категорию", f, :productcategories %>
-		  </div>
+		   </div>
+		   <div><%= link_to_add_fields "Добавить категорию", f, :productcategories %></div>
 		  </td>
 		</tr>
 		
@@ -72,14 +72,14 @@
         <tr>
           <td> Изображения: </td>
           <td>
-          <div align="center">
+          <div>
           <% @product.productimages.each do |pi| %>
             <%= f.fields_for :productimages, pi do |child| %>
               <%= render "productimage_fields", :f => child %>
             <% end %>
           <% end %>
-          <%= link_to_add_fields "Добавить изображение", f, :productimages %>
-          </div>
+           </div>
+		   <div><%= link_to_add_fields "Добавить изображение", f, :productimages %></div>
           </td>
         </tr>
 

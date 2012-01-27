@@ -1,4 +1,4 @@
-class Admin::ProductsController < Admin::AdminController
+﻿class Admin::ProductsController < Admin::AdminController
 
   def index
     scope = Product.order('id')
@@ -34,7 +34,7 @@ class Admin::ProductsController < Admin::AdminController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_product_path(@product), notice: "Product #{@product.name} was successfully created" }
+        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} успешно создан" }
       else
         format.html { render action: "new" }
       end
@@ -54,7 +54,7 @@ class Admin::ProductsController < Admin::AdminController
    
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to admin_product_path(@product), notice: "Product #{@product.name} was successfully changed" }
+        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} успешно изменен" }
       else
         format.html { render action: "edit" }
       end
@@ -66,7 +66,7 @@ class Admin::ProductsController < Admin::AdminController
     @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to (admin_products_url), notice: "Product #{@product.name} was deleted" }
+      format.html { redirect_to (admin_products_url), notice: "Товар #{@product.name} удален" }
     end
   end
 end

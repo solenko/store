@@ -50,9 +50,9 @@
   </div>
 
   <div align="center">
-    <%= link_to 'Back', admin_products_path, :class => 'btn' %>
-    <%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn info' %></td>
-    <%= link_to 'Destroy', ([:admin, @product]), confirm: 'Are you sure?', method: :delete, :class => 'btn danger' %></td>
+    <%= link_to 'Назад', admin_products_path, :class => 'btn' %>
+    <%= link_to 'Редактировать', edit_admin_product_path(@product), :class => 'btn info' %></td>
+    <%= link_to 'Удалить', ([:admin, @product]), confirm: 'Are you sure?', method: :delete, :class => 'btn danger' %></td>
   </div>
 
 </div>
