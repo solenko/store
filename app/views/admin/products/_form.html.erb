@@ -12,17 +12,7 @@
   <% end %>
 
   <div class="row">
-  <div class="span6">
-    <div> <img alt="" src="/pid_image.jpg"> </div>
-	<div>
-      <img alt="" src="/pid_image_small.jpg">
-	  <img alt="" src="/pid_image_small.jpg">
-	  <img alt="" src="/pid_image_small.jpg">
-	  <img alt="" src="/pid_image_small.jpg">
-	</div>
-  </div>
-  
-  <div class="span10">
+  <div class="span18">
   <table class="bordered-table zebra-striped">
 	  <tbody>
 	    <tr>
@@ -32,7 +22,7 @@
 	
    	    <tr>
 	      <td> Название </td>
-	      <td> <%= f.text_field :name %> </td>
+	      <td> <%= f.text_field :name, :maxlength => 24 %> </td>
         </tr>
 	
 	    <tr>
@@ -71,7 +61,7 @@
 		
 	    <tr>
           <td> Описание </td>
-          <td> <%= f.text_area :description, :class => 'span14' %> </td>
+          <td> <%= f.text_area :description, :class => 'span10', :rows => 7 %> </td>
         </tr>
 		
         <tr>
@@ -80,7 +70,7 @@
         </tr>
         
         <tr>
-          <td> Картинки: </td>
+          <td> Изображения: </td>
           <td>
           <div align="center">
           <% @product.productimages.each do |pi| %>

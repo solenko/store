@@ -7,11 +7,8 @@
   <div class="span6">
     <div><% if @product.productimages.present? %> <%= image_tag @product.productimages.first.image_url.to_s %> <% end %> </div>
 	<div>
-      <img alt="" src="/pid_image_small.jpg">
-	  <img alt="" src="/pid_image_small.jpg">
-	  <img alt="" src="/pid_image_small.jpg">
-	  <img alt="" src="/pid_image_small.jpg">
-	</div>
+	   <% if @product.productimages.present? %><% @product.productimages.each do |pp| %><%= image_tag pp.image_url(:thumb).to_s %><% end %><% end %>
+      </div>
   </div>
   
   <div class="span10">
