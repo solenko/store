@@ -13,7 +13,18 @@ class Product < ActiveRecord::Base
   validates :art, :presence => true, :uniqueness => true
   validates :name, :presence => true, :uniqueness => true
   validates :price, :presence => true, :numericality => true
+  validates :productimages, :presence => true, :on => :save
+  validates_presence_of :productcategories, :message => "^Choose category"
 
+  before_update :category_without_id
+  
+  private
+
+  def category_without_id
+    productcategories.each do |pc|
+      pc.mark_for_destruction if pc.category_id.blank?
+    end
+  end
 end
 
 
