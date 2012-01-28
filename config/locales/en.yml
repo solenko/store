@@ -91,7 +91,7 @@ ru:
     currency:
       format:
         format: "%n %u"
-        unit: "руб."
+        unit: "грн."
         separator: "."
         delimiter: " "
         precision: 2
@@ -293,8 +293,15 @@ ru:
         <<: *errors_template
       full_messages:
         format: "%{attribute} %{message}"
-
-
+    models:
+      product: "Товар"
+    attributes:
+      product:
+        art: "Артикул" 
+        name: "Наименование"
+        price: "Цена"
+        productcategories: "Категории"
+        productimages: "Изображения"
   support:
     select:
       prompt: "Выберите: "

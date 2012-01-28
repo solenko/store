@@ -16,8 +16,8 @@
       @product.productsizes.build( :size_id => size.id, :amount => 0 )
     end
 
-    @product.productcategories.build
-    @product.productimages.build
+    #@product.productcategories.build
+    #@product.productimages.build
 
   end
 
@@ -32,6 +32,15 @@
   def create
     @product = Product.new(params[:product])
 
+	if @product.valid?
+      del = {"_destroy"=>"1"}
+
+      params[:product][:productsizes_attributes].each_value { |value|
+        value.merge!(del) if value["amount"].to_i < 1 || value["amount"].blank?
+      }
+    end
+	
+	
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} успешно создан" }
