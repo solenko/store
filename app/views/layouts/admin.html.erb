@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>AdminPanel for RiMaRi</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+  <%= stylesheet_link_tag "bootstrap.min" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <style type="text/css">
@@ -12,6 +12,23 @@
     </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container">
+        <a class="brand" href="#">RiMaRi::Admin</a>
+
+          <ul class="nav">
+            <li><%= link_to 'Товары', admin_products_path %></li>
+            <li><%= link_to 'Категории', admin_categories_path %></li>
+            <li><%= link_to 'Размеры', admin_sizes_path %></li>
+          </ul>
+
+          <p class="pull-right"><% if user_signed_in? %>Вы вошли как <%= current_user.email %>. <%= link_to "Выйти", destroy_user_session_path, :method => :delete %><% end %></p>
+
+      </div>
+    </div>
+  </div>
+  
 <div class="container">
   <% if notice %>
     <div class="alert-message success"><%= notice %></div>
@@ -20,25 +37,9 @@
   <% if alert %>
     <div class="alert-message error"><%= alert %></div>
   <% end %>
-
-     <div class="topbar">
-      <div class="topbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="#">RiMaRi::Admin</a>
-
-          <ul class="nav">
-            <li><%= link_to 'Товары', admin_products_path %></li>
-            <li><%= link_to 'Категории', admin_categories_path %></li>
-            <li><%= link_to 'Размеры', admin_sizes_path %></li>
-          </ul>
-
-          <p class="pull-right">Logged in as <a href="#">username</a></p>
-
-        </div>
-      </div>
-    </div>
-
+  
   <%= yield %>
+  
 </div>
 </body>
 </html>

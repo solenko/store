@@ -1,39 +1,57 @@
 <div class="pid">
-				<div class="pid_image">
-					<div class="pid_image_big"><% if @product.productimages.present? %> <%= image_tag @product.productimages.first.image_url.to_s %><% end %></div>
-					<div class="pid_image_small">
-						<ul>
-						    <% if @product.productimages.present? %><% @product.productimages.each do |pp| %><li><%= image_tag pp.image_url(:thumb).to_s %><% end %></li><% end %>
-						</ul>
-					</div>
-				</div>
-				<div class="pid_details">
-				    <h1><%= @product.name %></h1>
-					Артикул №<%= @product.art %>
-					
-					<div class="pid_description">
-						<span>Цена:</span> <b><%= @product.price %></b> грн
-					</div>
-					
-					<div class="pid_description">
-						<label for="size">Размер:</label>
-						<%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> Таблица
-					</div>
-					
-					<div class="pid_description">
-						<label for="quan">Количество:</label>
-						<input type="text" value="1" id="pid_color_quan" name="" size="2"><br>
-						<input type="submit" align="center" value="Купить">
-					</div>
-					
-					<div class="pid_description">
-						<h2>Описание:</h2>
-						<%= simple_format(@product.description) %>
-					</div>
-					
-					<%= link_to "Назад", :back %>
-					
-				</div>
-			</div>
+  <div class="pid_image">
+
+    <div class="pid_image_big">
+      <% if @product.productimages.present? %>
+        <%= image_tag @product.productimages.first.image_url.to_s %>
+      <% end %>
+    </div>
+
+    <div class="pid_image_small">
+      <ul>
+        <% if @product.productimages.present? %>
+          <% @product.productimages.each do |pp| %>
+            <li>
+              <%= image_tag pp.image_url(:thumb).to_s %>
+          <% end %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="pid_details">
+    <h1><%= @product.name %></h1>
+    Артикул №<%= @product.art %>
+
+    <div class="pid_description">
+      <span>Цена:</span> <b><%= @product.price %></b> грн
+    </div>
+
+    <div class="pid_description">
+      <label for="size">Размер:</label>
+      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> Таблица
+    </div>
+
+    <div class="pid_description">
+      <label for="quan">Количество:</label>
+      <input type="text" value="1" id="pid_color_quan" name="" size="2"><br>
+     <!-- <input type="submit" align="center" value="Купить"> -->
+   </div>
+
+   <div class="pid_description">
+     <h2>Описание:</h2>
+     <%= simple_format(@product.description) %>
+  </div>
+
+  <br>
+
+  <div align="center">
+    <%= link_to "Назад", :back, :class=>"btn close" %>
+  </div>
+
+  </div>
+</div>
 
 

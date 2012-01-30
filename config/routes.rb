@@ -1,9 +1,11 @@
 Store::Application.routes.draw do
 
-  
+  devise_for :users, :controllers => { :sessions => "admin/sessions" }
+
   get "main" => "static_pages#main"
   get "contacts" => "static_pages#contacts"
   get "newest" => "products#newest"
+  get "admin" => "admin/admin#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,6 +56,7 @@ Store::Application.routes.draw do
   resources :products
 
   namespace :admin do
+    resources :users
     resources :products
     resources :categories
     resources :sizes

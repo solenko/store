@@ -1,0 +1,14 @@
+<div align="center">
+<div class="span7">
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <legend>Авторизируйтесь:</legend>
+  <div class="clearfix"><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div class="clearfix"><%= f.label :Пароль %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.submit "Войти" %></div>
+<% end %>
+</div>
+</div>
