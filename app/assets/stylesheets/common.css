@@ -82,6 +82,11 @@ a {text-decoration:none; color:#ffffff;}
 .pid_description {padding-top:20px}
 .pid_description h2 {font-size:16px; line-height:22px; text-decoration:underline}
 .pid_description p {padding:10px 0 0 0}
+.thumbnail:hover{background-color:transparent;}
+.thumbnail span{position:absolute;bottom:-19px;left: 439px;visibility:hidden;}
+.thumbnail span img{border-width:0;padding:2px;}
+.thumbnail:hover span{visibility:visible;z-index:50;}
+
 
 /*contacts*/
 .contacts {margin:20px auto 0;width: 500px;text-align:center}

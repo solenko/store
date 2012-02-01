@@ -12,7 +12,7 @@
         <% if @product.productimages.present? %>
           <% @product.productimages.each do |pp| %>
             <li>
-              <%= image_tag pp.image_url(:thumb).to_s %>
+              <a class="thumbnail" href="#thumb"><%= image_tag pp.image_url(:thumb).to_s %><span><%= image_tag pp.image_url.to_s %></span></a>
           <% end %>
             </li>
         <% end %>
@@ -20,6 +20,25 @@
     </div>
 
   </div>
+  
+  <script>
+  var largeImg = document.getElementById('pid_image_big');
+  
+  document.getElementById('pid_image_small').onclick = function(e) {
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+
+    if (target.nodeName != 'IMG') return;
+
+    var anchor = target.parentNode;
+	
+    largeImg.src = anchor.href;
+    largeImg.alt = anchor.title;
+			
+    return false;
+  }
+
+  </script>
 
   <div class="pid_details">
     <h1><%= @product.name %></h1>
