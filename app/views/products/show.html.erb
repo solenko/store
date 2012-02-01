@@ -20,25 +20,6 @@
     </div>
 
   </div>
-  
-  <script>
-  var largeImg = document.getElementById('pid_image_big');
-  
-  document.getElementById('pid_image_small').onclick = function(e) {
-    e = e || window.event;
-    var target = e.target || e.srcElement;
-
-    if (target.nodeName != 'IMG') return;
-
-    var anchor = target.parentNode;
-	
-    largeImg.src = anchor.href;
-    largeImg.alt = anchor.title;
-			
-    return false;
-  }
-
-  </script>
 
   <div class="pid_details">
     <h1><%= @product.name %></h1>
