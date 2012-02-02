@@ -1,6 +1,7 @@
 <div class="fields">
   <% if f.object.new_record? and f.object.image_cache.blank? %>
-    <%= f.file_field :image %>
+    <img id="preview" src="/no_image.png" height="108" width="72" >
+    <%= f.file_field :image, :onchange => "readURL(this);" %>
 	<%= f.hidden_field :image_cache %> &nbsp;&nbsp;&nbsp;
     <%= link_to_remove_fields "удалить", f %>
   <% elsif f.object.new_record? %>
@@ -18,3 +19,5 @@
   <% end %>
 <br/>
 </div>
+
+
