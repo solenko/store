@@ -1,10 +1,14 @@
 <div class="fields">
-  <% if !f.object.new_record? %>
-    <%= image_tag f.object.image_url(:thumb).to_s %> &nbsp;&nbsp;&nbsp;
+  <% if f.object.new_record? and f.object.image_cache.blank? %>
+    <%= f.file_field :image %>
+	<%= f.hidden_field :image_cache %> &nbsp;&nbsp;&nbsp;
+    <%= link_to_remove_fields "удалить", f %>
+  <% elsif f.object.new_record? %>
+    <%= image_tag "/uploads/tmp/#{f.object.image_cache.to_s.split('/')[0]}/thumb_#{f.object.image_cache.to_s.split('/')[1]}" %>
+    <%= f.hidden_field :image_cache %>	&nbsp;&nbsp;&nbsp;
     <%= link_to_remove_fields "удалить", f %>
   <% else %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %> &nbsp;&nbsp;&nbsp;
+    <%= image_tag f.object.image_url(:thumb).to_s %> &nbsp;&nbsp;&nbsp;
     <%= link_to_remove_fields "удалить", f %>
   <% end %>
 <br/>
