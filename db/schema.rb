@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(:version => 20120130133551) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "productcategories", :force => true do |t|
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(:version => 20120130133551) do
   end
 
   create_table "products", :force => true do |t|
-    t.string   "name"
     t.string   "art"
+    t.string   "name"
     t.text     "description"
     t.integer  "price"
+    t.boolean  "new_product"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "new_product"
   end
 
   create_table "productsizes", :force => true do |t|
