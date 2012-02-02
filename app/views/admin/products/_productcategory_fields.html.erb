@@ -1,10 +1,15 @@
 <div class="fields">
-        <% if !f.object.new_record? %>
-		  <%= f.object.category.name %>
-		  <%= link_to_remove_fields "удалить", f %>
-		<% else %>
-          <%= f.select :category_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" }, { :prompt => "Выберите:" }%>
-          <%= link_to_remove_fields "удалить", f %>
-		<% end %>
-		<br/>
+  <% if f.object.new_record? and !f.object.marked_for_destruction? %>
+	<%= f.select :category_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" }, { :prompt => "Выберите:" }%>
+    <%= link_to_remove_fields "удалить", f %>
+  <% elsif !f.object.new_record? and !f.object.marked_for_destruction? %>
+	<%= f.object.category.name %>
+	<%= link_to_remove_fields "удалить", f %>
+  <% elsif !f.object.new_record? and f.object.marked_for_destruction? %>
+	<div class="hide">		
+	  <%= f.object.category.name %>
+	  <%= link_to_remove_fields "удалить", f %>
+    </div>
+  <% end %>
+<br/>
 </div>

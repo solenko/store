@@ -16,9 +16,6 @@
       @product.productsizes.build( :size_id => size.id, :amount => 0 )
     end
 
-    #@product.productcategories.build
-    #@product.productimages.build
-
   end
 
   def edit
@@ -32,18 +29,9 @@
   def create
     @product = Product.new(params[:product])
 
-	if @product.valid?
-      del = {"_destroy"=>"1"}
-
-      params[:product][:productsizes_attributes].each_value { |value|
-        value.merge!(del) if value["amount"].to_i < 1 || value["amount"].blank?
-      }
-    end
-	
-	
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} успешно создан" }
+        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} уcпешно cоздан" }
       else
         format.html { render action: "new" }
       end
@@ -52,18 +40,10 @@
 
   def update
     @product = Product.find(params[:id])
-
-    if @product.valid?
-      del = {"_destroy"=>"1"}
-
-      params[:product][:productsizes_attributes].each_value { |value|
-        value.merge!(del) if value["amount"].to_i < 1 || value["amount"].blank?
-      }
-    end
    
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} успешно изменен" }
+        format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} уcпешно изменен" }
       else
         format.html { render action: "edit" }
       end

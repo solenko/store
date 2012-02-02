@@ -7,9 +7,14 @@
     <%= image_tag "/uploads/tmp/#{f.object.image_cache.to_s.split('/')[0]}/thumb_#{f.object.image_cache.to_s.split('/')[1]}" %>
     <%= f.hidden_field :image_cache %>	&nbsp;&nbsp;&nbsp;
     <%= link_to_remove_fields "удалить", f %>
-  <% else %>
+  <% elsif !f.object.new_record? and !f.object.marked_for_destruction? %>
     <%= image_tag f.object.image_url(:thumb).to_s %> &nbsp;&nbsp;&nbsp;
     <%= link_to_remove_fields "удалить", f %>
+  <% else %>
+    <div class="hide">
+    <%= image_tag f.object.image_url(:thumb).to_s %>
+	<%= link_to_remove_fields "удалить", f %>
+	</div> 
   <% end %>
 <br/>
 </div>
