@@ -21,5 +21,8 @@ slider/img_3.jpg: slider/img_3-23ad25764b10933b43ab0de6d1989c95.jpg
 uzor.png: uzor-9b56e870d016aad1d440240395d5511d.png
 veshalka.png: veshalka-0fb647d591fddfbf9558a6a2b448db55.png
 vk.png: vk-2c94a64eb7a382294c4a7e0d811b7de7.png
-application.js: application-613bdd9ec835540346a60635a2185397.js
-application.css: application-b719434ef3dc93816b1ce7b50a57d00b.css
+adm.js: adm-620934e6d1a3f5de95efec3a30c3f1e0.js
+application.js: application-03952cd0d78f8eaeff503bd11c755645.js
+libmin.js: libmin-6dc934b916774d170b3c3f50c317ac13.js
+bootstrap.css: bootstrap-90723bafe9e62082bc01b2d2e17c451b.css
+common.css: common-3bc2f3b76440482afc1a1910d7eec07d.css

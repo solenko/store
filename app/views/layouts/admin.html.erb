@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>AdminPanel for RiMaRi</title>
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "bootstrap" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "adm" %>
   <%= csrf_meta_tags %>
   <style type="text/css">
       body {
@@ -12,6 +13,7 @@
     </style>
 </head>
 <body>
+  <% if user_signed_in? %>
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container">
@@ -28,7 +30,7 @@
       </div>
     </div>
   </div>
-  
+  <% end %>
 <div class="container">
   <% if notice %>
     <div class="alert-message success"><%= notice %></div>
