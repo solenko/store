@@ -13,6 +13,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise', '2.0.0'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,7 +24,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer'
+# gem 'therubyracer'
 # Use unicorn as the web server
 # gem 'unicorn'
 
