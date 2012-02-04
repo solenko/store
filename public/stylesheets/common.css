@@ -1,7 +1,7 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
-body {font-family:Arial, sans-serif; font-size:15px; line-height:22px; background:url(bg_side.png) 0 0 repeat-x; color:#ffffff;}
+body {font-family:Arial, sans-serif; font-size:15px; line-height:22px; background:url(/images/bg_side.png) 0 0 repeat-x; color:#ffffff;}
 ol, ul {list-style: none;}
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
@@ -10,37 +10,36 @@ b, strong {font-weight:bold;}
 i, em {font-style:italic}
 a {text-decoration:none; color:#ffffff;}
 
-
-.main_all {background:url(dot.png) 0 0 repeat;}
-.main {width:1200px; /*background:url(bg_top.png) 0 0 no-repeat;*/ overflow:hidden; margin:0 auto;}
-.main_content {width:896px; background:url(bg_header.png) 0 0 no-repeat; margin:10px auto 0 auto;}
+.main_all {background:url(/images/dot.png) 0 0 repeat;}
+.main {width:1200px;overflow:hidden; margin:0 auto;}
+.main_content {width:896px; background:url(/images/bg_header.png) 0 0 no-repeat; margin:10px auto 0 auto;}
 .header {position:relative;}
 .logo {padding: 15px 0 0 293px; width:274px; height: 120px; text-align:center;}
 .logo img {margin-left:-30px;}
 .rec {position:absolute; right:0; top:0; margin: 47px 44px 0 0;}
-.menu {width:866px; margin-left:15px; height:60px; background:url(line.png) 0 0 repeat-x;}
+.menu {width:866px; margin-left:15px; height:60px; background:url(/images/line.png) 0 0 repeat-x;}
 .menu ul {margin: 0 0 0 164px;}
 .menu li {float:left; width:140px; height:72px; margin-top:-3px; margin-right: 62px;}
 .menu li a {float:left; width:140px; height:72px; padding:0; text-align:center;}
-.menu li a.mnu_home {background:url(mnu_home.png) 0 0 no-repeat;}
-.menu li a.mnu_catalog {background:url(mnu_catalog.png) 0 0 no-repeat;}
-.menu li a.mnu_contacts {background:url(mnu_contacts.png) 0 0 no-repeat;}
+.menu li a.mnu_home {background:url(/images/mnu_home.png) 0 0 no-repeat;}
+.menu li a.mnu_catalog {background:url(/images/mnu_catalog.png) 0 0 no-repeat;}
+.menu li a.mnu_contacts {background:url(/images/mnu_contacts.png) 0 0 no-repeat;}
 .menu li a:hover, .menu li a.active {background-position:0 -71px;}
 
-.content {float:left; width:900px; margin-top: -22px; padding: 20px 0 50px 0; background:url(bg_center.png) 0 0 repeat-y;}
+.content {float:left; width:900px; margin-top: -22px; padding: 20px 0 50px 0; background:url(/images/bg_center.png) 0 0 repeat-y;}
 .content p {padding:0 50px 0 59px; text-align:justify; text-indent:30px}
-.video {padding: 0 0 0 0; margin: 20px 0 0 100px; height:405px; /*background:url(bg_gallery.png) 0 0 no-repeat;*/}
-.video div {float:left; width:300px; /*margin-top:20px;*/ margin-left:30px;}
+.video {padding: 0 0 0 0; margin: 20px 0 0 100px; height:405px;}
+.video div {float:left; width:300px; margin-left:30px;}
 .video div img {text-align:center; width:214px; height:375px}
-.video div.ramka {float:none; width:650px; height:30px; background:url("ramka.jpg") 0 0 repeat-x; clear:both; margin-top:20px;}
+.video div.ramka {float:none; width:650px; height:30px; background:url(/images/ramka.jpg) 0 0 repeat-x; clear:both; margin-top:20px;}
 .video div.ramka.bottom {margin-top:321px;}
 .video div li {margin-right:0px;}
 .images {width:642px !important;}
 
-.footer {float:left; background:url(bg_footer.png) 0 0 no-repeat; width:896px; height:100px; text-align:center; padding-bottom:50px; font-size:14px;}
+.footer {float:left; background:url(/images/bg_footer.png) 0 0 no-repeat; width:896px; height:100px; text-align:center; padding-bottom:50px; font-size:14px;}
 .footer ul {float:left; margin:-60px 0 0 240px;}
 .footer li {float:left; margin-right: 128px;}
-.footer div {width: 864px; margin-left:15px; padding-top:50px; background:url(line.png) 0 0 repeat-x;}
+.footer div {width: 864px; margin-left:15px; padding-top:50px; background:url(/images/line.png) 0 0 repeat-x;}
 
 /*catalog*/
 .catalog .content {padding-top: 59px;}
@@ -49,13 +48,12 @@ a {text-decoration:none; color:#ffffff;}
 .sub_content1 ul {margin-bottom:10px; margin-left:25px;}
 .sub_content1 li a {font-size:14px;}
 .sub_content2 {float:left; width: 676px; padding-left: 10px; margin-top: 15px;}
-.catalog_item {float:left; width:190px; height:324px; margin-top: 10px; margin-right: 35px; background:url(bg_catalog_item.png) 0 0 no-repeat;}
+.catalog_item {float:left; width:190px; height:324px; margin-top: 10px; margin-right: 35px; background:url(/images/bg_catalog_item.png) 0 0 no-repeat;}
 .catalog_item div {width:190px; height:262px;}
 .catalog_item img {margin-left:11px; margin-top: 6px;}
 .catalog_item p {padding:0px 0 0 0; text-align:center; font-size:14px; margin-left:-30px;}
 .catalog_item p.size {padding:0px 0 0 0;text-align:right;margin-right:20px;}
 .catalog_item h4 {text-align:center; font-size:12px;}
-/*.pagination{height:36px;margin:18px 0;}*/
 .pagination {float: left; padding: 30px 0 0 233px; width: 676px;}
 .pagination span {display:inline-block; padding:0 3px}
 .pagination ul{float:left;margin:0;border:1px solid #ddd;border:1px solid rgba(0, 0, 0, 0.15);-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);}
@@ -66,9 +64,6 @@ a {text-decoration:none; color:#ffffff;}
 .pagination .disabled a,
 .pagination .disabled a:hover{background-color:transparent;color:#bfbfbf;}
 .pagination .next a{border:0;}
-
-
-
 
 /*PID*/
 .pid {float:left; width:630px; padding:0 0 0 40px; margin-top: 25px;}
@@ -85,7 +80,6 @@ a {text-decoration:none; color:#ffffff;}
 .thumbnail:hover{background-color:transparent;}
 .thumbnail span{position:absolute;top:0;left: 0;display:none;margin:-1px 0 0 0}
 .thumbnail:hover span{display:block;z-index:50;}
-
 
 /*contacts*/
 .contacts {margin:20px auto 0;width: 500px;text-align:center}
