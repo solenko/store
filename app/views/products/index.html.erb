@@ -1,12 +1,5 @@
-            
-			<div class="sub_content2">
-			    <% @products.each do |prod| %>
-				<div class="catalog_item">
-					<div><% if prod.productimages.present? %><%= link_to image_tag(prod.productimages.first.image_url(:catalog).to_s), product_path(prod) %><% end %></div>
-					<p><%= prod.name %></p>
-					<p class="size"><%= prod.price %> грн</p>
-				</div>
-			  <% end %>
-			</div>
-			<div class="pagination"><%= paginate @products %></div>
-		
+<div class="sub_content2">
+  <%= render @products %>
+</div>
+
+<%= paginate @products %>
