@@ -1,0 +1,7 @@
+$('.sub_content2').append('<%= j render @products %>');
+<% if @products.last_page? %>
+  $('.pagination').remove();
+<% else %>
+  $('.pagination').replaceWith('<%= j paginate @products %>');
+<% end %>
+<% sleep 1 %>
