@@ -31,7 +31,8 @@
 
     <div class="pid_description">
       <label for="size">Размер:</label>
-      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> Таблица
+      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> 
+	  <a class="tooltip" href="#">Таблица<span class="classic"></span></a>
     </div>
 
     <div class="pid_description">
