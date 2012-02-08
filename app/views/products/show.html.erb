@@ -32,7 +32,38 @@
     <div class="pid_description">
       <label for="size">Размер:</label>
       <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> 
-	  <a class="tooltip" href="#">Таблица<span class="classic"></span></a>
+	  <a class="tooltip" href="#">Таблица
+	    <span class="info">
+	      <table class="bordered-table zebra-striped">
+		    <thead>
+			  <tr>
+			    <th></th>
+				<th>ОГ</th>
+				<th>ОТ</th>
+				<th>ОБ</th>
+			  </tr>
+		  </thead>
+  
+          <tbody>
+		    <tr>
+			  <td>42</td>
+			  <td>84</td>
+			  <td>63</td>
+			  <td>92</td>
+			</tr>
+	
+			<tr>
+			  <td>44</td>
+			  <td>88</td>
+			  <td>67</td>
+			  <td>96</td>
+			</tr>
+		  </tbody>
+  
+		  </table>
+	  
+	    </span>
+	   </a>
     </div>
 
     <div class="pid_description">
