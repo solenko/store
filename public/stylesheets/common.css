@@ -86,7 +86,7 @@ a {text-decoration:none; color:#ffffff;}
 /*.tooltip:hover img {border: 0; margin: -10px 0 0 -55px; float: left; position: absolute;}*/
 /*.tooltip:hover em {font-size: 1.2em; font-weight: bold; display: block; padding: 0.2em 0 0.6em 0;}*/
 /*.info {background: #9FDAEE; border: 1px solid #2BB0D7;}*/ 
-table{background-color: #353535; width:100%;margin-bottom:18px;padding:0;font-size:13px;border-collapse:collapse;}table th,table td{padding:10px 10px 9px;line-height:18px;text-align:left;}
+table{background-color: #353535; width:100%;margin-bottom:18px;padding:0;font-size:13px;border-collapse:collapse;}table th,table td{padding:10px 10px 9px;line-height:18px;text-align:center;}
 table th{padding-top:9px;font-weight:bold;vertical-align:middle;}
 table td{vertical-align:top;border-top:1px solid #ddd;}
 table tbody th{border-top:1px solid #ddd;vertical-align:top;}
@@ -96,6 +96,7 @@ table tbody th{border-top:1px solid #ddd;vertical-align:top;}
 .bordered-table tbody tr:last-child td:first-child{-webkit-border-radius:0 0 0 4px;-moz-border-radius:0 0 0 4px;border-radius:0 0 0 4px;}
 .bordered-table tbody tr:last-child td:last-child{-webkit-border-radius:0 0 4px 0;-moz-border-radius:0 0 4px 0;border-radius:0 0 4px 0;}
 .zebra-striped tbody tr:nth-child(odd) td,.zebra-striped tbody tr:nth-child(odd) th{background-color:#696969;}
+.red {color:#e342b8;}
 
 /*contacts*/
 .contacts {margin:20px auto 0;width: 500px;text-align:center}
