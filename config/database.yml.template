@@ -1,0 +1,16 @@
+# ex: set ft=yaml:
+# This is a template file, please copy it to database.yml and edit
+# appropriately. Config file database.yml is added to .gitignore to prevent it
+# from being added again.
+
+development:
+    adapter: postgresql
+    database: store-development
+    username: store-development
+    password: secret
+
+production:
+  adapter: postgresql
+  database: store
+  username: postgres
+  password: password
