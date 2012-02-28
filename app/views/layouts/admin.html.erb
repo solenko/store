@@ -2,8 +2,11 @@
 <html>
 <head>
   <title>AdminPanel for RiMaRi</title>
-  <%= stylesheet_link_tag "bootstrap.min" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" %>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" %>
+  <%= javascript_include_tag "rails" %>
+  <%= javascript_include_tag "adm" %>
   <%= csrf_meta_tags %>
   <style type="text/css">
       body {
@@ -12,6 +15,7 @@
     </style>
 </head>
 <body>
+  <% if user_signed_in? %>
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container">
@@ -28,7 +32,7 @@
       </div>
     </div>
   </div>
-  
+  <% end %>
 <div class="container">
   <% if notice %>
     <div class="alert-message success"><%= notice %></div>

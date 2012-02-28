@@ -31,7 +31,76 @@
 
     <div class="pid_description">
       <label for="size">Размер:</label>
-      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> Таблица
+      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> 
+	  <a class="tooltip" href="#">Таблица
+	    <span class="info">
+	      <table class="bordered-table zebra-striped">
+		    <thead>
+			  <tr>
+			    <th></th>
+				<th>Грудь</th>
+				<th>Талия</th>
+				<th>Бедра</th>
+			  </tr>
+		  </thead>
+  
+          <tbody>
+		  
+		    <tr>
+			  <td class="red">42</td>
+			  <td>84</td>
+			  <td>63</td>
+			  <td>92</td>
+			</tr>
+	
+			<tr>
+			  <td class="red">44</td>
+			  <td>88</td>
+			  <td>67</td>
+			  <td>96</td>
+			</tr>
+			
+			<tr>
+			  <td class="red">46</td>
+			  <td>92</td>
+			  <td>71</td>
+			  <td>100</td>
+			</tr>
+			
+			<tr>
+			  <td class="red">48</td>
+			  <td>96</td>
+			  <td>75</td>
+			  <td>104</td>
+			</tr>
+			
+			<tr>
+			  <td class="red">50</td>
+			  <td>100</td>
+			  <td>79</td>
+			  <td>108</td>
+			</tr>
+			
+			<tr>
+			  <td class="red">52</td>
+			  <td>104</td>
+			  <td>83</td>
+			  <td>112</td>
+			</tr>
+			
+			<tr>
+			  <td class="red">54</td>
+			  <td>108</td>
+			  <td>87</td>
+			  <td>116</td>
+			</tr>
+			
+		  </tbody>
+  
+		  </table>
+	  
+	    </span>
+	   </a>
     </div>
 
     <div class="pid_description">
