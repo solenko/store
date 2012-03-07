@@ -38,7 +38,7 @@ class Admin::SizesController < Admin::AdminController
     @size = Size.find(params[:id])
     @size.destroy
 
-    redirect_to (admin_sizes_url), notice: "Размер #{@size.code} успешно удален." }
+    redirect_to (admin_sizes_url), notice: "Размер #{@size.code} удален."
   end
 
 end
