@@ -15,33 +15,30 @@ class Admin::SizesController < Admin::AdminController
   def create
     @size = Size.new(params[:size])
 
-    respond_to do |format|
-      if @size.save
-        format.html { redirect_to (admin_sizes_url), notice: "Size #{@size.code} was successfully created." }
-      else
-        format.html { render action: "new" }
-      end
+    if @size.save
+      redirect_to (admin_sizes_url), notice: "Размер #{@size.code} успешно создан."
+    else
+      render action: "new"
     end
+
   end
 
   def update
     @size = Size.find(params[:id])
 
-    respond_to do |format|
-      if @size.update_attributes(params[:size])
-        format.html { redirect_to (admin_sizes_url), notice: "Size #{@size.code} was successfully updated." }
-      else
-        format.html { render action: "edit" }
-      end
+    if @size.update_attributes(params[:size])
+      redirect_to (admin_sizes_url), notice: "Размер #{@size.code} успешно изменён."
+    else
+      render action: "edit"
     end
+
   end
 
   def destroy
     @size = Size.find(params[:id])
     @size.destroy
 
-    respond_to do |format|
-      format.html { redirect_to (admin_sizes_url), "Size #{@size.code} was successfully deleted." }
-    end
+    redirect_to (admin_sizes_url), notice: "Размер #{@size.code} удален."
   end
+
 end
