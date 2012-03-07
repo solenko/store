@@ -1,4 +1,4 @@
-class Admin::SizesController < Admin::AdminController
+﻿class Admin::SizesController < Admin::AdminController
 
   def index
     @sizes = Size.all
@@ -16,7 +16,7 @@ class Admin::SizesController < Admin::AdminController
     @size = Size.new(params[:size])
 
     if @size.save
-      redirect_to (admin_sizes_url), notice: "Size #{@size.code} was created."
+      redirect_to (admin_sizes_url), notice: "Размер #{@size.code} успешно создан."
     else
       render action: "new"
     end
@@ -27,7 +27,7 @@ class Admin::SizesController < Admin::AdminController
     @size = Size.find(params[:id])
 
     if @size.update_attributes(params[:size])
-      redirect_to (admin_sizes_url), notice: "Size #{@size.code} was updated."
+      redirect_to (admin_sizes_url), notice: "Размер #{@size.code} успешно изменен."
     else
       render action: "edit"
     end
@@ -38,7 +38,7 @@ class Admin::SizesController < Admin::AdminController
     @size = Size.find(params[:id])
     @size.destroy
 
-    redirect_to (admin_sizes_url), notice: "Size #{@size.code} was deleted."
+    redirect_to (admin_sizes_url), notice: "Размер #{@size.code} удален."
   end
 
 end
