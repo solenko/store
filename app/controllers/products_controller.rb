@@ -4,7 +4,7 @@
   attr_reader :category, :seasson
 
 def newest
-  @products = Product.where(:new_product => true).page(params[:page]).per(3)
+  @products = Product.where(:new_product => true).page(params[:page]).per(12)
   render "index"
 end
 
@@ -18,7 +18,7 @@ def index
 #  scope = scope.categories.where(:category_id => @category.id) if @category
 
   scope = Product.joins(:productcategories).where('productcategories.category_id = ?', @category.id) if @category
-  @products = scope.page(params[:page]).per(4)
+  @products = scope.page(params[:page]).per(12)
 
 end
 
