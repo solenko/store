@@ -14,10 +14,10 @@ def show
 end
 
 def index
-#  scope = Product.order('created_at desc')
+  scope = Product.order('created_at desc')
 #  scope = scope.categories.where(:category_id => @category.id) if @category
 
-  scope = Product.joins(:productcategories).where('productcategories.category_id = ?', @category.id) if @category
+  scope = scope.joins(:productcategories).where('productcategories.category_id = ?', @category.id) if @category
   @products = scope.page(params[:page]).per(12)
 
 end
