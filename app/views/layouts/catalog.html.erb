@@ -18,12 +18,17 @@
 <div class="content">
   <div class="sub_content1">
     <ul>
-	<li><%= link_to 'Новинки', newest_path %></li>
+	<li><%= link_to 'Новинки', newest_path, :class => ('active' if current_page?(:controller => 'products', :action => 'newest')) %></li>
+	<li><%= link_to 'Все товары', products_path, :class => ('active' if current_page?(:controller => 'products', :action => 'index') && @category.nil?) %></li>
 	<% Category.roots.each do |cat| %>
+	  <% if @category && cat.id == @category.id || @category && cat.children.collect { |i| i.id }.include?(@category.id) %>
+		<li> <%= link_to "#{cat.name}", { :controller => "products", :action => "index", :category_id => cat.id}, :class => 'active' %></li>
+          <% cat.children.each do |child| %>
+			<li class="sub"><%= link_to "#{child.name}", { :controller => "products", :action => "index", :category_id => child.id}, :class => ('active' if child.id == @category.id) %></li>
+          <% end %>
+	  <% else %>
 		<li> <%= link_to "#{cat.name}", { :controller => "products", :action => "index", :category_id => cat.id} %></li>
-                <% cat.children.each do |child| %>
-                  <li>-- <%= link_to "#{child.name}", { :controller => "products", :action => "index", :category_id => child.id} %></li>
-                <% end %>
+	  <% end %>
 	<% end %>
 	</ul>
   </div>
