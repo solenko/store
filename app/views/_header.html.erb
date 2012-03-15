@@ -6,9 +6,9 @@
 			
 			<div class="menu">
 				<ul>
-					<li><%= link_to '', main_path, :class => 'mnu_home', :title => 'Главная' %></li>
-					<li><%= link_to '', newest_path, :class => 'mnu_catalog', :title => 'Каталог' %></li>
-					<li><%= link_to '', contacts_path, :class => 'mnu_contacts', :title => 'Контакты' %></a></li>
+					<li><%= link_to '', main_path, :class => "mnu_home #{'active' if current_page?(:controller => 'static_pages', :action => 'main')}", :title => 'Главная' %></li>
+					<li><%= link_to '', newest_path, :class => "mnu_catalog #{'active' if params[:controller] == 'products'}", :title => 'Каталог' %></li>
+					<li><%= link_to '', contacts_path, :class => "mnu_contacts #{'active' if current_page?(:controller => 'static_pages', :action => 'contacts')}", :title => 'Контакты' %></a></li>
 				</ul>
 			</div>
 		</div>
