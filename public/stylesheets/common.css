@@ -53,7 +53,8 @@ a {text-decoration:none; color:#ffffff;}
 
 .sub_content2 {float:left; width: 676px; padding-left: 10px; margin-top: 15px;}
 .catalog_item {float:left; width:190px; height:324px; margin-top: 10px; margin-right: 35px; background:url(/images/bg_catalog_item.png) 0 0 no-repeat;}
-.catalog_item div {width:190px; height:262px;}
+.catalog_item div {position:relative; width:190px; height:262px;}
+.catalog_item div a img.catalog_item_new {position:absolute;top:0;right:0;margin:6px 10px 0 0}
 .catalog_item img {margin-left:11px; margin-top: 6px;}
 .catalog_item p {padding:0px 0 0 0; text-align:center; font-size:14px; margin-left:-30px;}
 .catalog_item p.size {padding:0px 0 0 0;text-align:right;margin-right:20px;}
