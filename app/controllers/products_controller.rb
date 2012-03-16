@@ -14,7 +14,7 @@ def show
 end
 
 def index
-  scope = Product.order('created_at desc')
+  scope = Product.order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC")
 #  scope = scope.categories.where(:category_id => @category.id) if @category
 
   scope = scope.joins(:productcategories).where('productcategories.category_id = ?', @category.id) if @category
