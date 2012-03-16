@@ -1,8 +1,15 @@
 
 				<div class="catalog_item">
-					<div><% if product.productimages.present? %><%= link_to image_tag(product.productimages.first.image_url(:catalog).to_s), product_path(product) %><% end %></div>
+					<div>
+					  <%= link_to product_path(product) do %>
+					    <%= image_tag(product.productimages.first.image_url(:catalog).to_s) %>
+					    <% if product.new_product? %>
+						  <%= image_tag "new.png", :class=> "catalog_item_new" %>
+						<% end %>
+					</div>
 					<p><%= product.name %></p>
 					<p class="size"><%= product.price %> грн</p>
+					  <% end %>
 				</div>
 
 
