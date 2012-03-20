@@ -19,10 +19,10 @@
   <% @products.each do |product| %>
   
 	<tr>
-	  <td> <%= product.id %> </td>
 	  <td> <%= product.art %> </td>
 	  <td> <%= product.name %></td>
 	  <td> <%= product.price %> </td>
+	  <td> <%= product.color %> </td>
 	  <td> <% product.productsizes.each do |ps| %><%= " #{ps.size.code} - #{ps.amount}," %><% end %></td>
 	  <td> <% if product.new_product? %> &#8730; <% end %></td>
 	  <td> <% product.productcategories.each do |pc| %><p> <% if pc.category.root? %> <%= " #{pc.category.name} " %> <% else %> <%= " #{pc.category.root.name} - #{pc.category.name} " %> <% end %> </p><% end %></td>

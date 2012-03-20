@@ -57,7 +57,8 @@ a {text-decoration:none; color:#ffffff;}
 .catalog_item div a img.catalog_item_new {position:absolute;top:0;right:0;margin:6px 10px 0 0}
 .catalog_item img {margin-left:11px; margin-top: 6px;}
 .catalog_item p {padding:0px 0 0 0; text-align:center; font-size:14px; margin-left:-30px;}
-.catalog_item p.size {padding:0px 0 0 0;text-align:right;margin-right:20px;}
+.catalog_item p.size {padding:0px 0 0 0;text-align:right;margin-right:20px;float:right}
+.catalog_item p.color {float:left;margin-left:-17px;text-align:left}
 .catalog_item h4 {text-align:center; font-size:12px;}
 .pagination {float: left; padding: 30px 0 0 233px; width: 676px;}
 .pagination span {display:inline-block; padding:0 3px}
@@ -80,7 +81,7 @@ a {text-decoration:none; color:#ffffff;}
 .pid_details div {padding-bottom:10px;}
 .pid_details h1 {padding-bottom:20px; font-size:20px; line-height:20px;}
 .pid_description {padding-top:20px}
-.pid_description h2 {font-size:16px; line-height:16px; text-decoration:underline}
+.pid_description h2 {font-size:14px; line-height:14px; text-decoration:underline}
 .pid_description h8 {font-size:14px; line-height:14px; color:#F15DA7;}
 .pid_description p {padding:10px 0 0 0}
 .thumbnail:hover{background-color:transparent;}
