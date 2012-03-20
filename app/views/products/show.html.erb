@@ -29,8 +29,9 @@
       <span>Цена:</span> <b><%= @product.price %></b> грн
     </div>
 
+	<% if @product.productsizes_count > 0 %>
     <div class="pid_description">
-      <label for="size">Размер:</label>
+	  <label for="size">Размер:</label>
       <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> 
 	  <a class="tooltip" href="#">Таблица
 	    <span class="info">
@@ -105,9 +106,13 @@
 
     <div class="pid_description">
       <label for="quan">Количество:</label>
-      <input type="text" value="1" id="pid_color_quan" name="" size="2"><br>
-     <!-- <input type="submit" align="center" value="Купить"> -->
+      <input type="text" value="" id="pid_color_quan" name="" size="2"><br>
    </div>
+   <% else %>
+   <div class="pid_description">
+   <h8>Нет в наличии</h8>
+   </div>
+   <% end %>
 
    <div class="pid_description">
      <h2>Описание:</h2>
@@ -117,7 +122,9 @@
   <br>
 
   <div align="center">
-    <%= link_to "Назад", :back, :class=>"btn close" %>
+    <% if @product.productsizes_count > 0 %>
+    <input type="submit" align="center" value="Купить" class="btn close disabled">
+	<% end %>
   </div>
 
   </div>
