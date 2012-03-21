@@ -10,12 +10,17 @@ end
 
 def show
   @product = Product.find(params[:id])
-  @title = @product.name
+  @title = "#{@title} - #{@product.name}"
 end
 
 def index
-  scope = Product.order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC")
-  scope = scope.joins(:productcategories).where('productcategories.category_id = ?', @category.id) if @category
+  
+  if @category
+    scope = Product.joins(:productcategories).where('productcategories.category_id = ?', @category.id).order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC")
+  else
+    scope = Product.order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC")
+  end
+  
   @products = scope.page(params[:page]).per(12)
 end
 
@@ -25,12 +30,14 @@ private
   end
 
   def set_category_title
-    if @category.nil?
+    if params[:mode] == 'newest'
       @title = "Новинки"
-    elsif @category.root?
+	elsif @category && @category.root?
       @title = "#{category.name}"
-    else
+    elsif @category
       @title = "#{category.root.name} - #{category.name}"
+	else
+	  @title = "Все товары"
     end
   end
 end
