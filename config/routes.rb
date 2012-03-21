@@ -4,56 +4,12 @@ Store::Application.routes.draw do
 
   get "main" => "static_pages#main"
   get "contacts" => "static_pages#contacts"
-  get "newest" => "products#newest"
   get "admin" => "admin/admin#index"
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-  resources :products
+  match 'newest', :to => 'products#newest', :defaults => {:mode => 'newest'}, :as => 'newest_products'
+  match 'newest/:id', :to => 'products#show', :defaults => {:mode => 'newest'}, :as => 'newest_product'
+  match 'products(/:category_id)', :to => 'products#index', :defaults => {:mode => 'all' }, :as => 'products'
+  match 'product(/:category_id)/:id', :to => 'products#show', :defaults => {:mode => 'all' }, :as => 'product'
 
   namespace :admin do
     resources :users
@@ -61,13 +17,7 @@ Store::Application.routes.draw do
     resources :categories
     resources :sizes
   end
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+ 
   root :to => 'static_pages#main'
 
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end
