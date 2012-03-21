@@ -1,7 +1,7 @@
 
 				<div class="catalog_item">
 					<div>
-					  <%= link_to product_path(product) do %>
+					  <%= link_to product_path(:id=>product.id, :cat=>params[:action], :category_id=>(@category.id if @category)) do %>
 					    <%= image_tag(product.productimages.first.image_url(:catalog).to_s) %>
 					    <% if product.new_product? %>
 						  <%= image_tag "new.png", :class=> "catalog_item_new" %>
@@ -11,7 +11,3 @@
 					<p class="color"><%= product.color %></p><p class="size"><%= product.price %> грн</p>
 					  <% end %>
 				</div>
-
-
-
-		
