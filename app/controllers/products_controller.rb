@@ -4,7 +4,7 @@
   attr_reader :category, :seasson
 
 def newest
-  @products = Product.where(:new_product => true).page(params[:page]).per(12)
+  @products = Product.where(:new_product => true).order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC").page(params[:page]).per(12)
   render "index"
 end
 
@@ -14,12 +14,9 @@ def show
 end
 
 def index
-  scope = Product.order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC")
-#  scope = scope.categories.where(:category_id => @category.id) if @category
-
+  scope = Product.order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC")
   scope = scope.joins(:productcategories).where('productcategories.category_id = ?', @category.id) if @category
   @products = scope.page(params[:page]).per(12)
-
 end
 
 private
