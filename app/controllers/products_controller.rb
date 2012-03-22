@@ -4,13 +4,36 @@
   attr_reader :category, :seasson
 
 def newest
-  @products = Product.where(:new_product => true).order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC").page(params[:page]).per(12)
+  scope = Product.where(:new_product => true).order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC")
+  @products = scope.page(params[:page]).per(12)
   render "index"
 end
 
 def show
   @product = Product.find(params[:id])
   @title = "#{@title} - #{@product.name}"
+  
+  if params[:mode] == 'newest'
+    products = Product.where(:new_product => true).order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC").collect {|i| i.id}
+  elsif params[:mode] == 'all' && @category.present?
+    products = Product.joins(:productcategories).where('productcategories.category_id = ?', @category.id).order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC").collect {|i| i.id}
+  else
+    products = Product.order("CASE WHEN productsizes_count = 0 THEN 1 ELSE 0 END, new_product DESC, id DESC").collect {|i| i.id}
+  end
+  
+  @product_index = products.index(@product.id)
+  @count = (products.size - 1)
+  
+  if @count > 1 #view prev/next link only if have more than one product
+    if @product_index == @count #cycle pagination
+      @next_product = products[0]
+	else
+	  @next_product = products[@product_index+1]
+    end
+	  @prev_product = products[@product_index-1]
+  end  
+  
+  
 end
 
 def index

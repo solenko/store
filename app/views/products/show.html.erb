@@ -24,7 +24,13 @@
   <div class="pid_details">
     <h1><%= @product.name %></h1>
     Артикул №<%= @product.art %>
-
+	
+	<% if @product.color %>
+	<div class="pid_description">
+	<span>Цвет:</span> <%= @product.color %>
+	</div>
+	<% end %>
+	
     <div class="pid_description">
       <span>Цена:</span> <b><%= @product.price %></b> грн
     </div>
@@ -126,7 +132,23 @@
     <input type="submit" align="center" value="Купить" class="btn close disabled">
 	<% end %>
   </div>
+  
 
+
+  </div>
+  
+   <div class="pagination">
+    <ul>
+	<% if params[:mode] == 'newest' %>
+      <li><%= link_to "<<", newest_product_path(@prev_product) %></li>
+	  <li class="disabled"><%= "#{@product_index+1} из #{@count+1}"%></li>
+	  <li><%= link_to ">>", newest_product_path(@next_product) %></li>
+	<% elsif params[:mode] == 'all' %>
+	  <li><%= link_to "<<", product_path(@prev_product) %></li>
+	  <li class="disabled"><%= "#{@product_index+1} из #{@count+1}"%></li>
+	  <li><%= link_to ">>", product_path(@next_product) %></li>
+	<% end %>
+	</ul>
   </div>
 </div>
 
