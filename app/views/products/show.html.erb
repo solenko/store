@@ -144,9 +144,9 @@
 	  <li class="disabled"><%= "#{@product_index+1} из #{@count+1}"%></li>
 	  <li><%= link_to ">>", newest_product_path(@next_product) %></li>
 	<% elsif params[:mode] == 'all' %>
-	  <li><%= link_to "<<", product_path(@prev_product) %></li>
+	  <li><%= link_to "<<", product_path(:category_id=>(@category.id if @category), :id=>@prev_product) %></li>
 	  <li class="disabled"><%= "#{@product_index+1} из #{@count+1}"%></li>
-	  <li><%= link_to ">>", product_path(@next_product) %></li>
+	  <li><%= link_to ">>", product_path(:category_id=>(@category.id if @category), :id=>@next_product) %></li>
 	<% end %>
 	</ul>
   </div>
