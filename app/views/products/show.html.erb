@@ -38,7 +38,7 @@
 	<% if @product.productsizes_count > 0 %>
     <div class="pid_description">
 	  <label for="size">Размер:</label>
-      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code") %> 
+      <%= select_tag "size" , options_from_collection_for_select(@product.sizes, "id", "code"), :include_blank => true %> 
 	  <a class="tooltip" href="#">Таблица
 	    <span class="info">
 	      <table class="bordered-table zebra-striped">
