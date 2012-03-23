@@ -7,6 +7,17 @@
   <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" %>
   <%= javascript_include_tag "rails" %>
   <%= javascript_include_tag "adm" %>
+
+    <%= javascript_include_tag 'tiny_mce/tiny_mce' %>
+	<script type="text/javascript">
+       tinyMCE.init({
+	     theme : "advanced",
+         mode : "textareas",
+		 plugins : "imce"
+       });
+    </script>
+
+  
   <%= csrf_meta_tags %>
   <style type="text/css">
       body {
@@ -25,6 +36,7 @@
             <li><%= link_to 'Товары', admin_products_path %></li>
             <li><%= link_to 'Категории', admin_categories_path %></li>
             <li><%= link_to 'Размеры', admin_sizes_path %></li>
+			<li><%= link_to 'Страницы', admin_static_pages_path %></li>
           </ul>
 
           <p class="pull-right"><% if user_signed_in? %>Вы вошли как <%= current_user.email %>. <%= link_to "Выйти", destroy_user_session_path, :method => :delete %><% end %></p>
