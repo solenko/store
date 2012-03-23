@@ -1,0 +1,27 @@
+<div align="center">
+<h1>Список страниц</h1>
+<div class="span12">
+<table class="bordered-table zebra-striped">
+<thead>
+  <tr>
+	<th>Наименование</th>
+	<th colspan=2></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @static_pages.each do |page| %>
+  
+    <tr>
+	  <td> <%= page.name %> </td>
+	  <td> <%= link_to 'Редактировать', edit_admin_static_page_path(page), :class => 'btn info' %> </td>
+	  <td> <%= link_to 'Удалить', ([:admin, page]), confirm: 'Вы уверены?', method: :delete, :class => 'btn danger' %> </td>
+    </tr>
+  	
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Создать страницу', new_admin_static_page_path, :class => 'btn primary large' %>
+</div>
+</div>

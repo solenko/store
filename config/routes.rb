@@ -16,6 +16,7 @@ Store::Application.routes.draw do
     resources :products
     resources :categories
     resources :sizes
+    resources :static_pages
   end
  
   root :to => 'static_pages#main'
