@@ -17,9 +17,10 @@
             if (input.files && input.files[0]) {
 			
 			  $.each(input.files, function(i, file) {
-			    $.ajax({url: '/admin/products/build_image',
-                data: 'file=' + <%= h(@product.id) %>, 
-                dataType: 'script'})
+			  var new_id = new Date().getTime();
+			  $('#filelist').append(
+	                '<input id="product_productimages_attributes_' + new_id + '_image" type="file" name="product[productimages_attributes][' + new_id +'][image]" value="' + file.name +'">' +
+	                file.name + ' (' + plupload.formatSize(file.size) + ') <br/>');
   
 
 	        });
