@@ -58,4 +58,13 @@
       format.html { redirect_to (admin_products_url), notice: "Товар #{@product.name} удален" }
     end
   end
+  
+  def build_image
+    if params[:file]
+	  product = Product.find(params[:file])
+	  new_object = product.class.reflect_on_association(:productimages).klass.new
+	end
+  end
+  
+  
 end
