@@ -287,6 +287,9 @@ ru:
         price: "Цена"
         productcategories: "Категории"
         productimages: "Изображения"
+      static_page:
+        name: "Название страницы"
+        text: "Содержание"
   support:
     select:
       prompt: "Выберите: "
