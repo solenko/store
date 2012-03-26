@@ -40,7 +40,7 @@
 
   def update
     @product = Product.find(params[:id])
-   
+ 
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to admin_product_path(@product), notice: "Товар #{@product.name} уcпешно изменен" }
@@ -58,13 +58,17 @@
       format.html { redirect_to (admin_products_url), notice: "Товар #{@product.name} удален" }
     end
   end
-  
+
   def build_image
     if params[:file]
-	  product = Product.find(params[:file])
-	  new_object = product.class.reflect_on_association(:productimages).klass.new
-	end
+      product = Product.find(params[:id])
+      new_object = Productimage.new(:image => params[:file])
+      builder = ActionView::Helpers::FormBuilder.new(:product, product, self, {}, proc{})
+      fields = builder.fields_for(:productimages, new_object, :child_index => "new_productimages") do |builder|
+        render(:partial => "productimage_fields", :locals => { :f => builder})
+      end
+    end
   end
-  
-  
+
+
 end

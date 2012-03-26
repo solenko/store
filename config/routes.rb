@@ -5,7 +5,7 @@ Store::Application.routes.draw do
   get "main" => "static_pages#main"
   get "contacts" => "static_pages#contacts"
   get "admin" => "admin/admin#index"
-  match '/admin/products/build_image', :controller=>'admin/products', :action=>'build_image'
+  match '/admin/products/build_image/:id', :controller=>'admin/products', :action=>'build_image'
   
   match 'newest', :to => 'products#newest', :defaults => {:mode => 'newest'}, :as => 'newest_products'
   match 'newest/:id', :to => 'products#show', :defaults => {:mode => 'newest'}, :as => 'newest_product'

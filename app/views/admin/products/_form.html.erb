@@ -10,25 +10,22 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-</script>
-
-  <script type="text/javascript">
+		
+		
         function readmultiURL(input) {
             if (input.files && input.files[0]) {
-			
-			  $.each(input.files, function(i, file) {
-			  var new_id = new Date().getTime();
-			  $('#filelist').append(
-	                '<input id="product_productimages_attributes_' + new_id + '_image" type="file" name="product[productimages_attributes][' + new_id +'][image]" value="' + file.name +'">' +
-	                file.name + ' (' + plupload.formatSize(file.size) + ') <br/>');
+
+				$.each(input.files, function(i, file) {
+					$.ajax({url: '/admin/products/build_image/<%= @product.id %>',
+					data: 'file=' + file, 
+					dataType: 'script'})
   
-
-	        });
-			
-
+				});
             }
         }
 </script>
+
+
 
 <%= form_for([:admin, @product]) do |f| %>
   <% if @product.errors.any? %>
@@ -117,7 +114,7 @@
           <% end %>
            </div>
 		   <div><%= link_to_add_fields "Добавить изображение", f, :productimages %></div>
-		   <div><%= f.file_field :image, :onchange => "readmultiURL(this);", :multiple => true %></div>
+		   
 		 
 		   <div id="filelist"></div>
           </td>
@@ -126,7 +123,6 @@
       </tbody>
     </table>
 
-  
 
   <div class="actions">
     <%= f.submit "Сохранить", :class => 'btn success' %>
@@ -136,5 +132,5 @@
 
   
 <% end %>
-
+<div><input id="image" type="file" onchange="readmultiURL(this);" multiple></div>
  </div>
