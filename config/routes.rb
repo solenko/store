@@ -5,7 +5,8 @@ Store::Application.routes.draw do
   get "main" => "static_pages#main"
   get "contacts" => "static_pages#contacts"
   get "admin" => "admin/admin#index"
-
+  match 'plupload_rails/_plupload_uploader', :controller=>'plupload_rails', :action=>'_plupload_uploader', :as=>'pluploader'
+  
   match 'newest', :to => 'products#newest', :defaults => {:mode => 'newest'}, :as => 'newest_products'
   match 'newest/:id', :to => 'products#show', :defaults => {:mode => 'newest'}, :as => 'newest_product'
   match 'products(/:category_id)', :to => 'products#index', :defaults => {:mode => 'all' }, :as => 'products'

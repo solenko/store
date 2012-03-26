@@ -11,6 +11,38 @@
             }
         }
 </script>
+<script type="text/javascript">
+// Convert divs to queue widgets when the DOM is ready
+$(function() {
+var authtoken = $("input[name=authenticity_token]").val();
+$("#uploader").pluploadQueue({
+// General settings
+runtimes : 'html5,flash,silverlight,gears,browserplus',
+url : '/plupload_rails/_plupload_uploader',
+max_file_size : '10mb',
+//chunk_size : '1mb',
+//unique_names : true,
+multipart: true,
+multipart_params :
+$.extend({
+},
+{
+authenticity_token : authtoken,
+"_method" : "put",
+"_plupload_upload" : "product[productimages_attributes][][image]"
+}
+),
+flash_swf_url : '/javascripts/plupload/plupload.flash.swf',
+silverlight_xap_url : '/javascripts/plupload/plupload.silverlight.xap'
+,
+init: {
+FileUploaded: function(up, file, info) {
+eval(info.response);
+}
+}
+});
+});
+</script>
 
 
 <%= form_for([:admin, @product]) do |f| %>
@@ -100,6 +132,7 @@
           <% end %>
            </div>
 		   <div><%= link_to_add_fields "Добавить изображение", f, :productimages %></div>
+		   <div id="uploader" name="uploader"></div>
           </td>
         </tr>
 

@@ -8,16 +8,11 @@
   <%= javascript_include_tag "rails" %>
   <%= javascript_include_tag "adm" %>
 
-    <%= javascript_include_tag 'tiny_mce/tiny_mce' %>
-	<script type="text/javascript">
-       tinyMCE.init({
-	     theme : "advanced",
-         mode : "textareas",
-		 plugins : "imce"
-       });
-    </script>
-
+  <%= stylesheet_link_tag "plupload" %>
+  <%= javascript_include_tag "plupload/plupload.full" %>
+  <%= javascript_include_tag "plupload/queue/queue" %>
   
+   
   <%= csrf_meta_tags %>
   <style type="text/css">
       body {
