@@ -1,0 +1,30 @@
+From 2429a1166acf009e804ff0a15cbb0c9ebb7fda3d Mon Sep 17 00:00:00 2001
+From: Anton Petrunich <anton.petrunich@gmail.com>
+Date: Tue, 27 Mar 2012 16:14:38 +0300
+Subject: [PATCH] Ugly hack for multiple image upload
+
+---
+ app/models/product.rb |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+diff --git a/app/models/product.rb b/app/models/product.rb
+index a3ccffc..42cd8db 100644
+--- a/app/models/product.rb
++++ b/app/models/product.rb
+@@ -37,6 +37,13 @@
+       pc.mark_for_destruction if pc.amount.to_i < 1
+     end
+   end
++
++  def image=(files)
++    files.each do |file|
++      self.productimages << Productimage.new(:image => file)
++    end
++
++  end
+   
+ end
+ 
+-- 
+1.7.5.4
+
