@@ -13,7 +13,7 @@ class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "assets/attachments/#{model.id}"
+    "assets/attachments/"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -36,7 +36,7 @@ class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+   def filename
+     "#{original_filename.split('.')[0]}_#{Time.now.to_i}.#{file.extension}" if original_filename
+   end
 end
