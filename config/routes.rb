@@ -7,6 +7,7 @@ Store::Application.routes.draw do
   get "stock" => "static_pages#stock"
   get "about" => "static_pages#about"
   get "terms" => "static_pages#terms"
+  get "sizes" => "static_pages#sizes"
   get "contacts" => "static_pages#contacts"
   #static end
   

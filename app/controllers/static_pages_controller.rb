@@ -24,5 +24,10 @@
     @text = StaticPage.find_by_name("about")
 	@title = "О Нас"
   end
+  
+  def sizes
+    @text = StaticPage.find_by_name("sizes")
+	@title = "О Нас"
+  end
 
 end
