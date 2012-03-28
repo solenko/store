@@ -33,8 +33,14 @@
 		<li> <%= link_to "#{cat.name}", products_path(:category_id => cat.id) %></li>
 	  <% end %>
 	<% end %>
-	
 	</ul>
+	
+	<ul>
+	  <li><%= link_to 'Как сделать заказ', terms_path %></li>
+	  <li><%= link_to 'Таблица размеров', sizes_path %></li>
+	  <li><%= link_to 'О Нас', about_path %></li>
+	</ul>
+	
   </div>
 <%= yield %>
 </div>
